@@ -11,7 +11,7 @@ const params = 'airTemperature,humidity,cloudCover,visibility,precipitation,wave
 // Initialisation function on load. 
 export const init = async () => {
     try{
-        const { data } = await axios.get(`http://localhost:6001/?query=https://api.stormglass.io/v2/weather/point?lat=${coords.lat}&lng=${coords.lng}&params=${params}`);
+        const { data } = await axios.get(`https://surf-proxy-adlulz279-croftkie.vercel.app?query=https://api.stormglass.io/v2/weather/point?lat=${coords.lat}&lng=${coords.lng}&params=${params}`);
         console.log(data);
         // const { data } = await axios.get(`https://api.stormglass.io/v2/weather/point?lat=${coords.lat}&lng=${coords.lng}&params=${params}`, headers);
         data.hours.length = 24 * 7;
@@ -45,7 +45,7 @@ export const fetchSurfData = async (lng, lat)=>{
         hideAnims(".day", -400);
         hideAnims(".hour", 400);
         breakdownAnimHide();
-        const { data } = await axios.get(`http://localhost:6001/?query=https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}`);
+        const { data } = await axios.get(`https://surf-proxy-adlulz279-croftkie.vercel.app?query=https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}`);
         data.hours.length = (24 * 7)-1;
         const daily = dailyAverage(data.hours);
         const hourly = hourlyData(data.hours);
