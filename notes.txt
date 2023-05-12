@@ -1,0 +1,20 @@
+- "no data" / "no network access" alternative.
+    - simple game?
+        - canvas with four images
+            - water background
+            - wave on the left
+            - surfer
+            - shark fin
+        - the goal is to jump over the coming sharks
+
+NO NETWORK GAME
+on key down (space), the image of the surfer rises by x pixels
+on key up (space), the image of the surf descends by x pixels
+
+The image of the shark moves from one side of the play area to the other.
+    - if the x/y location of the shark is beyond the bounds of the play area, reset location.
+    - The speed at which the shark moves increases over time.
+
+If the x/y location of the surfer image is the same as the shark, it means the two have touched and the game is over
+
+score given in number of seconds survived. Time in the top corner.

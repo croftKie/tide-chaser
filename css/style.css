@@ -1,0 +1,1106 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: white;
+  font-family: "Nunito";
+  min-height: 100vh;
+}
+body.night-gradient {
+  background-image: linear-gradient(rgb(8, 35, 73) 55%, rgba(255, 255, 255, 0.633));
+}
+body.dawn-dusk-gradient {
+  background-image: linear-gradient(rgb(8, 67, 122) 55%, rgba(255, 255, 255, 0.633));
+}
+body.day-gradient {
+  background-image: linear-gradient(rgb(73, 179, 195) 55%, rgba(255, 255, 255, 0.633));
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 40px auto 40px 4fr;
+}
+.container .upper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.container .upper .logo {
+  grid-column: 1/2;
+  padding-left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.container .upper .logo img {
+  height: 30px;
+  filter: invert(100%);
+}
+.container .upper .logo h1 {
+  color: rgb(8, 35, 73);
+  font-size: 1.4rem;
+}
+.container .upper .settings {
+  grid-column: 2/3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 12px;
+}
+.container .upper .settings img {
+  height: 30px;
+  filter: invert(100%);
+  cursor: pointer;
+}
+.container .search {
+  display: grid;
+  grid-template-rows: 1fr 0fr;
+  justify-content: center;
+  transition: grid-template-rows, 1s;
+  margin: 0 0 10px 0;
+}
+.container .search .search-bar {
+  grid-row: 1/2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5px;
+}
+.container .search .search-bar div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+}
+.container .search .search-bar div img {
+  height: 25px;
+  cursor: pointer;
+  filter: invert(100%);
+}
+.container .search .search-bar div img:nth-of-type(1):active {
+  transform: scale(90%);
+}
+.container .search .search-bar div img:nth-of-type(2) {
+  height: 20px;
+}
+.container .search .search-bar div input {
+  width: 75%;
+  height: 30px;
+  font-family: "Nunito";
+  font-size: 0.8rem;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  padding-left: 10px;
+  box-shadow: inset 1px 1px 3px 1px rgba(33, 102, 159, 0.464);
+}
+.container .search .search-bar .down-arrow {
+  width: 25px;
+  cursor: pointer;
+  filter: invert(100%);
+}
+.container .search .map {
+  border-radius: 5px;
+  border: 5px solid white;
+  width: 90vw;
+  transition: height, 2s;
+}
+.container .info {
+  padding: 0 20px 0 20px;
+}
+.container .info h4 {
+  align-self: center;
+  color: white;
+}
+.container .info p {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+.container .info p span {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.container .content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 40px auto auto;
+}
+.container .content .daily {
+  align-items: center;
+  display: flex;
+  gap: 15px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 10px;
+  color: white;
+  scrollbar-width: none;
+  grid-row: 1/2;
+}
+.container .content .daily::-webkit-scrollbar {
+  display: none;
+}
+.container .content .daily .day {
+  height: 100%;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  transform: translateY(-400px);
+}
+.container .content .daily .day img {
+  height: 40px;
+}
+.container .content .daily .day h3 {
+  font-size: 1rem;
+}
+.container .content .daily .day:hover {
+  background-color: white;
+  color: rgb(8, 35, 73);
+  cursor: pointer;
+}
+.container .content .daily .day:active {
+  transform: scale(95%);
+}
+.container .content .daily .day p {
+  font-size: 0.8rem;
+}
+.container .content .daily .day div img {
+  height: 30px;
+}
+.container .content .daily .day div img.red {
+  filter: invert(53%) sepia(25%) saturate(6799%) hue-rotate(328deg) brightness(120%) contrast(105%);
+}
+.container .content .daily .day div img.orange {
+  filter: invert(95%) sepia(12%) saturate(3559%) hue-rotate(317deg) brightness(103%) contrast(102%);
+}
+.container .content .daily .day div img.green {
+  filter: invert(95%) sepia(97%) saturate(701%) hue-rotate(49deg) brightness(101%) contrast(95%);
+}
+.container .content .daily .clicked {
+  background-color: white;
+  color: rgb(8, 35, 73);
+  box-shadow: 1px 1px 10px 1px rgba(33, 102, 159, 0.464);
+}
+.container .content h4 {
+  padding: 0 20px 0 20px;
+  align-self: center;
+  color: white;
+}
+.container .content .hourly {
+  align-items: center;
+  display: flex;
+  gap: 15px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 10px;
+  color: white;
+  scrollbar-width: none;
+  grid-row: 2/3;
+}
+.container .content .hourly::-webkit-scrollbar {
+  display: none;
+}
+.container .content .hourly .hour {
+  height: 100%;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  transform: translateY(400px);
+}
+.container .content .hourly .hour img {
+  height: 40px;
+}
+.container .content .hourly .hour h3 {
+  font-size: 1rem;
+}
+.container .content .hourly .hour:hover {
+  background-color: white;
+  color: rgb(8, 35, 73);
+  cursor: pointer;
+}
+.container .content .hourly .hour:active {
+  transform: scale(95%);
+}
+.container .content .hourly .hour img.red {
+  filter: invert(53%) sepia(25%) saturate(6799%) hue-rotate(328deg) brightness(120%) contrast(105%);
+}
+.container .content .hourly .hour img.orange {
+  filter: invert(95%) sepia(12%) saturate(3559%) hue-rotate(317deg) brightness(103%) contrast(102%);
+}
+.container .content .hourly .hour img.green {
+  filter: invert(95%) sepia(97%) saturate(701%) hue-rotate(49deg) brightness(101%) contrast(95%);
+}
+.container .content .hourly .clicked {
+  background-color: white;
+  color: rgb(8, 35, 73);
+  box-shadow: 1px 1px 10px 1px rgba(33, 102, 159, 0.464);
+}
+.container .content .surf-data {
+  padding: 0 20px 0 20px;
+  color: rgb(8, 35, 73);
+  overflow: clip;
+}
+.container .content .surf-data .current-surf {
+  gap: 20px;
+}
+.container .content .surf-data .current-surf .upper-surf-data {
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 20px 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 0 10px 0 0;
+  transform: translateY(-400px);
+}
+.container .content .surf-data .current-surf .upper-surf-data .highlight {
+  grid-row: 1/3;
+  grid-column: 1/2;
+  height: 100%;
+  width: 20px;
+  background-color: rgb(72, 221, 72);
+  border-radius: 10px 0 0 10px;
+}
+.container .content .surf-data .current-surf .upper-surf-data .highlight.red {
+  background-color: rgb(237, 77, 69);
+}
+.container .content .surf-data .current-surf .upper-surf-data .highlight.orange {
+  background-color: rgb(237, 189, 69);
+}
+.container .content .surf-data .current-surf .upper-surf-data .highlight.green {
+  background-color: rgb(72, 221, 72);
+}
+.container .content .surf-data .current-surf .upper-surf-data h4 {
+  grid-column: 2/4;
+  grid-row: 1/2;
+  color: rgb(8, 35, 73);
+  font-size: 1.1rem;
+}
+.container .content .surf-data .current-surf .upper-surf-data div {
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .content .surf-data .current-surf .upper-surf-data div img {
+  height: 30px;
+}
+.container .content .surf-data .current-surf .upper-surf-data div:nth-of-type(2) {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+.container .content .surf-data .current-surf .upper-surf-data div:nth-of-type(3) {
+  grid-column: 3/4;
+  grid-row: 2/3;
+}
+.container .content .surf-data .current-surf .upper-surf-data div:nth-of-type(4) {
+  grid-column: 4/5;
+  grid-row: 1/2;
+  background-color: #ffffff;
+}
+.container .content .surf-data .current-surf .upper-surf-data div:nth-of-type(5) {
+  grid-column: 4/5;
+  grid-row: 2/3;
+}
+.container .content .weather-data {
+  padding: 0 20px 0 20px;
+  color: rgb(8, 35, 73);
+  overflow: clip;
+}
+.container .content .weather-data .current-weather {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  column-gap: 10px;
+  text-align: center;
+  margin: 10px 0 10px 0;
+}
+.container .content .weather-data .current-weather .temp-data {
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  flex-direction: column;
+  gap: 20px;
+  transform: translateY(-400px);
+}
+.container .content .weather-data .current-weather .other-data {
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  flex-direction: column;
+  gap: 20px;
+  transform: translateY(-400px);
+}
+.container .content .weather-data .current-weather div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.container .content .weather-data .current-weather div img {
+  height: 30px;
+}
+.container .content .weather-data .current-weather div p {
+  font-size: 1.2rem;
+}
+.container.blur {
+  filter: blur(2.5px);
+}
+
+.splash {
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+  top: 0;
+  background-color: rgb(8, 35, 73);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.splash .logo {
+  display: flex;
+}
+.splash .logo img {
+  height: 50px;
+  filter: invert(100%);
+}
+.splash .hint {
+  width: 80%;
+}
+.splash .hint .tip {
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.splash .hint .tip img {
+  height: 40px;
+  filter: invert(100%);
+}
+.splash .go {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.splash .go button {
+  height: 50px;
+  width: 40%;
+  cursor: pointer;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+}
+.splash.hide {
+  display: none;
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  left: 30vw;
+  height: 100vh;
+  width: 70vw;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 40px 2fr 1fr;
+  padding: 5px;
+}
+.menu .close {
+  display: flex;
+  justify-content: flex-end;
+}
+.menu .close img {
+  height: 25px;
+  cursor: pointer;
+}
+.menu .favourites {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  color: rgb(8, 35, 73);
+}
+.menu .favourites h3 {
+  text-align: center;
+}
+.menu .favourites .item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 75px;
+  justify-content: space-between;
+  padding: 0 5px 0 5px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.menu .favourites .item div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.menu .favourites .item div:nth-of-type(2) {
+  justify-content: start;
+  color: rgba(0, 0, 0, 0.5);
+  gap: 10px;
+}
+.menu .favourites .item div:nth-of-type(2) p {
+  font-size: 0.8rem;
+}
+.menu .favourites .item p {
+  font-size: 1.1rem;
+}
+.menu .favourites .item button {
+  width: 80px;
+  background-color: rgb(8, 35, 73);
+  color: white;
+  font-family: "Nunito";
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 2px;
+}
+.menu .favourites .item button:active {
+  transform: scale(90%);
+}
+.menu .light-dark div {
+  display: flex;
+  justify-content: space-evenly;
+}
+.menu .light-dark div p {
+  cursor: pointer;
+}
+.menu.hide {
+  display: none;
+}
+
+.favouritePopup {
+  position: absolute;
+  width: 90vw;
+  top: 23%;
+  left: 5%;
+  background-color: white;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 10px 10px 10px;
+  color: rgb(8, 35, 73);
+}
+.favouritePopup img {
+  height: 30px;
+  width: 30px;
+  border: 2px solid rgb(8, 35, 73);
+  border-radius: 50px;
+  padding: 2px;
+  cursor: pointer;
+}
+.favouritePopup input {
+  height: 30px;
+  border: 2px solid black;
+  outline: none;
+  background: none;
+  border-radius: 50px;
+  padding-left: 10px;
+  font-weight: bold;
+  box-shadow: inset 1px 1px 1px 1px rgba(33, 102, 159, 0.464);
+}
+.favouritePopup button {
+  height: 40px;
+  width: 40px;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  background-color: rgb(8, 35, 73);
+  color: white;
+  cursor: pointer;
+}
+.favouritePopup button:active {
+  transform: scale(90%);
+}
+.favouritePopup.hide {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .container {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40px auto 40px 4fr;
+    gap: 10px;
+  }
+  .container .upper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px 10px 0 10px;
+  }
+  .container .upper .logo {
+    grid-column: 1/2;
+    padding-left: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .container .upper .logo img {
+    height: 30px;
+    filter: invert(100%);
+    height: 50px;
+  }
+  .container .upper .logo h3 {
+    font-size: 2rem;
+  }
+  .container .upper .settings {
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 12px;
+  }
+  .container .upper .settings img {
+    height: 30px;
+    filter: invert(100%);
+    height: 40px;
+    cursor: pointer;
+  }
+  .container .search {
+    display: grid;
+    grid-template-rows: 1fr 0fr;
+    justify-content: center;
+    transition: grid-template-rows, 1s;
+    margin: 0 0 10px 0;
+  }
+  .container .search .search-bar {
+    grid-row: 1/2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5px;
+  }
+  .container .search .search-bar div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+  }
+  .container .search .search-bar div img {
+    height: 35px;
+    cursor: pointer;
+    filter: invert(100%);
+  }
+  .container .search .search-bar div img:nth-of-type(1):active {
+    transform: scale(90%);
+  }
+  .container .search .search-bar div img:nth-of-type(2) {
+    height: 30px;
+  }
+  .container .search .search-bar div input {
+    width: 75%;
+    height: 30px;
+    font-family: "Nunito";
+    font-size: 0.8rem;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    padding-left: 10px;
+    box-shadow: inset 1px 1px 3px 1px rgba(33, 102, 159, 0.464);
+  }
+  .container .search .search-bar .down-arrow {
+    width: 25px;
+    cursor: pointer;
+    filter: invert(100%);
+  }
+  .container .search .map {
+    border-radius: 5px;
+    border: 5px solid white;
+    width: 40vw;
+    transition: height, 2s;
+  }
+  .container .info {
+    padding-left: 100px;
+  }
+  .container .info h4 {
+    align-self: center;
+    color: white;
+    font-size: 1.2rem;
+  }
+  .container .info p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .container .info p span {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .container .content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 40px auto auto;
+  }
+  .container .content .daily {
+    align-items: center;
+    display: flex;
+    gap: 15px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 10px;
+    color: white;
+    scrollbar-width: none;
+    grid-row: 1/2;
+    padding: 0 200px 0 200px;
+  }
+  .container .content .daily::-webkit-scrollbar {
+    display: none;
+  }
+  .container .content .daily .day {
+    height: 100%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    transform: translateY(-400px);
+  }
+  .container .content .daily .day img {
+    height: 40px;
+  }
+  .container .content .daily .day h3 {
+    font-size: 1rem;
+  }
+  .container .content .daily .day:hover {
+    background-color: white;
+    color: rgb(8, 35, 73);
+    cursor: pointer;
+  }
+  .container .content .daily .day:active {
+    transform: scale(95%);
+  }
+  .container .content .daily .day h3 {
+    font-size: 1.3rem;
+  }
+  .container .content .daily .day p {
+    font-size: 1rem;
+  }
+  .container .content .daily .day div img {
+    height: 40px;
+  }
+  .container .content .daily .day div img.red {
+    filter: invert(53%) sepia(25%) saturate(6799%) hue-rotate(328deg) brightness(120%) contrast(105%);
+  }
+  .container .content .daily .day div img.orange {
+    filter: invert(95%) sepia(12%) saturate(3559%) hue-rotate(317deg) brightness(103%) contrast(102%);
+  }
+  .container .content .daily .day div img.green {
+    filter: invert(95%) sepia(97%) saturate(701%) hue-rotate(49deg) brightness(101%) contrast(95%);
+  }
+  .container .content .daily .day img {
+    height: 40px;
+  }
+  .container .content .daily .clicked {
+    background-color: white;
+    color: rgb(8, 35, 73);
+    box-shadow: 1px 1px 10px 1px rgba(33, 102, 159, 0.464);
+  }
+  .container .content h4 {
+    align-self: center;
+    color: white;
+    padding: 0 100px 0 100px;
+    font-size: 1.2rem;
+  }
+  .container .content .hourly {
+    align-items: center;
+    display: flex;
+    gap: 15px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 10px;
+    color: white;
+    scrollbar-width: none;
+    grid-row: 2/3;
+    margin: 0 300px 0 300px;
+    column-gap: 40px;
+  }
+  .container .content .hourly::-webkit-scrollbar {
+    display: none;
+  }
+  .container .content .hourly .hour {
+    height: 100%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    transform: translateY(400px);
+  }
+  .container .content .hourly .hour img {
+    height: 40px;
+  }
+  .container .content .hourly .hour h3 {
+    font-size: 1rem;
+  }
+  .container .content .hourly .hour:hover {
+    background-color: white;
+    color: rgb(8, 35, 73);
+    cursor: pointer;
+  }
+  .container .content .hourly .hour:active {
+    transform: scale(95%);
+  }
+  .container .content .hourly .hour img.red {
+    filter: invert(53%) sepia(25%) saturate(6799%) hue-rotate(328deg) brightness(120%) contrast(105%);
+  }
+  .container .content .hourly .hour img.orange {
+    filter: invert(95%) sepia(12%) saturate(3559%) hue-rotate(317deg) brightness(103%) contrast(102%);
+  }
+  .container .content .hourly .hour img.green {
+    filter: invert(95%) sepia(97%) saturate(701%) hue-rotate(49deg) brightness(101%) contrast(95%);
+  }
+  .container .content .hourly .clicked {
+    background-color: white;
+    color: rgb(8, 35, 73);
+    box-shadow: 1px 1px 10px 1px rgba(33, 102, 159, 0.464);
+  }
+  .container .content .surf-data {
+    color: rgb(8, 35, 73);
+    width: 75%;
+    justify-self: center;
+    align-self: end;
+    padding: 0 200px 0 200px;
+    overflow: clip;
+  }
+  .container .content .surf-data .current-surf {
+    gap: 20px;
+  }
+  .container .content .surf-data .current-surf .upper-surf-data {
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    transform: translateY(-400px);
+    height: 200px;
+    display: grid;
+    grid-template-columns: 30px 1fr 1fr 1fr 1fr;
+    grid-template-rows: 60px 1fr;
+    padding: 0 10px 0 0;
+  }
+  .container .content .surf-data .current-surf .upper-surf-data .highlight {
+    grid-row: 1/3;
+    grid-column: 1/2;
+    height: 100%;
+    width: 30px;
+    background-color: rgb(72, 221, 72);
+    border-radius: 10px 0 0 10px;
+  }
+  .container .content .surf-data .current-surf .upper-surf-data .highlight.red {
+    background-color: #ed4e45;
+  }
+  .container .content .surf-data .current-surf .upper-surf-data .highlight.orange {
+    background-color: #edbd45;
+  }
+  .container .content .surf-data .current-surf .upper-surf-data .highlight.green {
+    background-color: #48dd48;
+  }
+  .container .content .surf-data .current-surf .upper-surf-data h4 {
+    grid-column: 2/6;
+    grid-row: 1/2;
+    color: rgb(8, 35, 73);
+    font-size: 1.6rem;
+    padding: 0 0 0 30px;
+  }
+  .container .content .surf-data .current-surf .upper-surf-data div {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .container .content .surf-data .current-surf .upper-surf-data div img {
+    height: 60px;
+  }
+  .container .content .surf-data .current-surf .upper-surf-data div p {
+    font-size: 1.2rem;
+  }
+  .container .content .surf-data .current-surf .upper-surf-data div:nth-of-type(2) {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  .container .content .surf-data .current-surf .upper-surf-data div:nth-of-type(3) {
+    grid-column: 3/4;
+    grid-row: 2/3;
+  }
+  .container .content .surf-data .current-surf .upper-surf-data div:nth-of-type(4) {
+    grid-column: 5/6;
+    grid-row: 2/3;
+    background-color: #ffffff;
+  }
+  .container .content .surf-data .current-surf .upper-surf-data div:nth-of-type(5) {
+    grid-column: 4/5;
+    grid-row: 2/3;
+  }
+  .container .content .weather-data {
+    padding: 0 200px 0 200px;
+    color: rgb(8, 35, 73);
+    width: 75%;
+    justify-self: center;
+    overflow: clip;
+  }
+  .container .content .weather-data .current-weather {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    column-gap: 10px;
+    text-align: center;
+    margin: 10px 0 10px 0;
+  }
+  .container .content .weather-data .current-weather .temp-data {
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    flex-direction: column;
+    gap: 20px;
+    transform: translateY(-400px);
+  }
+  .container .content .weather-data .current-weather .other-data {
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    flex-direction: column;
+    gap: 20px;
+    transform: translateY(-400px);
+  }
+  .container .content .weather-data .current-weather div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .container .content .weather-data .current-weather div img {
+    height: 30px;
+  }
+  .container .content .weather-data .current-weather div p {
+    font-size: 1.2rem;
+  }
+  .container.blur {
+    filter: blur(2.5px);
+  }
+  .splash {
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+    top: 0;
+    background-color: rgb(8, 35, 73);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+  }
+  .splash .logo {
+    display: flex;
+  }
+  .splash .logo img {
+    height: 100px;
+    filter: invert(100%);
+  }
+  .splash .hint {
+    width: 40%;
+  }
+  .splash .hint .tip {
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  .splash .hint .tip img {
+    height: 60px;
+    filter: invert(100%);
+  }
+  .splash .go {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .splash .go button {
+    height: 50px;
+    width: 20%;
+    cursor: pointer;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+  }
+  .splash.hide {
+    display: none;
+  }
+  .menu {
+    position: absolute;
+    top: 15px;
+    left: 79.5vw;
+    height: 95vh;
+    width: 20vw;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40px 2fr 1fr;
+    padding: 5px;
+    border-radius: 20px;
+  }
+  .menu .close {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .menu .close img {
+    height: 40px;
+    cursor: pointer;
+  }
+  .menu .favourites {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    color: rgb(8, 35, 73);
+  }
+  .menu .favourites h3 {
+    text-align: center;
+  }
+  .menu .favourites .item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 75px;
+    justify-content: space-between;
+    padding: 0 5px 0 5px;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .menu .favourites .item div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .menu .favourites .item div:nth-of-type(2) {
+    justify-content: start;
+    color: rgba(0, 0, 0, 0.5);
+    gap: 10px;
+  }
+  .menu .favourites .item div:nth-of-type(2) p {
+    font-size: 0.8rem;
+  }
+  .menu .favourites .item p {
+    font-size: 1.1rem;
+  }
+  .menu .favourites .item button {
+    width: 80px;
+    background-color: rgb(8, 35, 73);
+    color: white;
+    font-family: "Nunito";
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 2px;
+  }
+  .menu .favourites .item button:active {
+    transform: scale(90%);
+  }
+  .menu .light-dark div {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .menu .light-dark div p {
+    cursor: pointer;
+  }
+  .menu.hide {
+    display: none;
+  }
+  .favouritePopup {
+    position: absolute;
+    width: 350px;
+    top: 14%;
+    left: 40%;
+    background-color: white;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 10px 10px 10px;
+    box-shadow: 1px 1px 10px 1px rgba(33, 102, 159, 0.464);
+    color: rgb(8, 35, 73);
+  }
+  .favouritePopup img {
+    height: 30px;
+    width: 30px;
+    border: 2px solid rgb(8, 35, 73);
+    border-radius: 50px;
+    padding: 2px;
+    cursor: pointer;
+  }
+  .favouritePopup input {
+    height: 30px;
+    width: 250px;
+    border: 2px solid black;
+    outline: none;
+    background: none;
+    border-radius: 50px;
+    padding-left: 10px;
+    font-weight: bold;
+    box-shadow: inset 1px 1px 1px 1px rgba(33, 102, 159, 0.464);
+  }
+  .favouritePopup button {
+    height: 40px;
+    width: 40px;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    background-color: rgb(8, 35, 73);
+    color: white;
+    cursor: pointer;
+  }
+  .favouritePopup button:active {
+    transform: scale(90%);
+  }
+  .favouritePopup.hide {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
