@@ -43,7 +43,7 @@ export const setHourlies = (data, day = currentDay.getDay())=>{
 // provides the HTML template for the hourly data
 function dayHTML(day, waveHeight, temp, imgClass){
     return `
-    <img class="${imgClass}" src="/assets/wave-height.png" alt="">
+    <img class="${imgClass}" src="./assets/wave-height.png" alt="">
     <h3>${day}</h3>
 `; 
 }

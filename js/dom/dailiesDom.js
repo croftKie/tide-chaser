@@ -51,10 +51,10 @@ function dayHTML(day, waveHeight, temp, image, score){
     return `
     <h3>${day}</h3>
     <div>
-    <img class="${score}" src="/assets/wave-height.png" alt="">
+    <img class="${score}" src="./assets/wave-height.png" alt="">
     <p>${waveHeight}m</p>
     </div>
-    <img src="/assets/weather/${image}" alt="">
+    <img src="./assets/weather/${image}" alt="">
     <p>${temp}°C</p>
 `; 
 }
