@@ -1,7 +1,4 @@
-
-
 const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday',"Saturday"];
-
 
 // Daily Average Object Creation
 export function dailyAverage(fullData){
@@ -59,12 +56,9 @@ export function cardinalDirection(degrees){
     return direction;
  }
 
-
-
 // 
 // DAILY AVERAGE CALCULATIONS
-// 
-
+//
 function averageWaveHeight(fullData, dayNum){
     let avgWaveHeight = 0;
     const surfPerDay = fullData.filter((e)=>{
@@ -75,19 +69,6 @@ function averageWaveHeight(fullData, dayNum){
     });
     return parseFloat((avgWaveHeight / surfPerDay.length).toFixed(2));
 }
-
-// function dailyHigh(fullData, dayNum){
-//     let highWave = 0;
-//     const surfPerDay = fullData.filter((e)=>{
-//         return new Date(e.time).getDay() === dayNum;
-//     });
-//     surfPerDay.forEach((e)=>{
-//         if (e.waveHeight.noaa >= highWave) {
-//             highWave = e.waveHeight.noaa;
-//         }
-//     });
-//     return highWave;
-// }
 
 function averageTemp(fullData, dayNum){
     let avgTemp = 0;

@@ -1,4 +1,5 @@
-import { coords, mapScript } from "./map.js";
+import { stormGlassKey } from "../config.js";
+import { mapScript } from "./map.js";
 import { setDailies } from "./dom/dailiesDom.js";
 import { setHourlies } from "./dom/hourlyDom.js";
 import { setSurfData, setWeatherData } from "./dom/breakdownDom.js";
@@ -6,69 +7,28 @@ import { dailyAverage, hourlyData } from "./utils/calculations.js";
 import { initMenu, popup } from "./dom/menuDom.js";
 import {hideAnims, breakdownAnimHide} from "./anims/mainAnims.js";
 
-const params = 'airTemperature,humidity,cloudCover,visibility,precipitation,waveHeight,wavePeriod,windDirection,windSpeed,waterTemperature';
-
-// Initialisation function on load. 
-export const init = async () => {
-    try{
-        const base64Encoded = btoa(`https://api.stormglass.io/v2/weather/point?lat=${coords.lat}&lng=${coords.lng}&params=${params}`);
-        // const {data} = await axios.get(`http://localhost:6002?query=${base64Encoded}`);
-        console.log(base64Encoded);
-        const { data } = await axios.get(`https://surf-proxy.vercel.app?query=${base64Encoded}`);
-        console.log(data);
+// Initialisation function on load.
+export const fetchData = async (lng, lat) => {
+    const params = 'airTemperature,humidity,cloudCover,visibility,precipitation,waveHeight,wavePeriod,windDirection,windSpeed,waterTemperature';
+    try {
+        const base64Encoded = btoa(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}`);
+        const {data} = await axios.get(`https://surf-proxy.vercel.app?query=${base64Encoded}`);
         data.hours.length = 24 * 7;
         const daily = dailyAverage(data.hours);
         const hourly = hourlyData(data.hours);
-    
-        mapScript();
-        setDailies(daily, hourly);
-        setHourlies(hourly);
-        setSurfData(hourly)
-        setWeatherData(hourly);
-        initMenu();
-        popup(daily, hourly);
-    } catch(err){
-        Toastify({
-            text: "Surf data not available, try again later",
-            duration: 3000,
-            close: true,
-            gravity: "top", 
-            position: "center",
-            style: {
-              background: "linear-gradient(to right, #df2007, #dc4936)",
-            }
-          }).showToast();
-    }
-}
-
-// Repeatable fetch function 
-export const fetchSurfData = async (lng, lat)=>{
-    try {
-        hideAnims(".day", -400);
-        hideAnims(".hour", 400);
-        breakdownAnimHide();
-        const { data } = await axios.get(`https://surf-proxy.vercel.app?query=https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}`);
-        data.hours.length = (24 * 7)-1;
-        const daily = dailyAverage(data.hours);
-        const hourly = hourlyData(data.hours);
-    
-        setDailies(daily, hourly);
-        setHourlies(hourly);
-        setSurfData(hourly)
-        setWeatherData(hourly);
-
-
-    } catch(err){
-        Toastify({
-            text: "No report available, try closer to the water",
-            duration: 3000,
-            close: true,
-            gravity: "top", 
-            position: "center",
-            style: {
-              background: "linear-gradient(to right, #df2007, #dc4936)",
-            }
-          }).showToast();
+        let mode = 0;
+        if (mode === 0) {
+            mapScript();
+            initMenu();
+            popup(daily, hourly);
+            dataManager(daily, hourly);
+            mode = 1;
+        } else {
+            popup(daily, hourly);
+            dataManager(daily, hourly);
+        }
+    } catch (err) {
+        toast("Surf data not available, try again later");
     }
 }
 
@@ -78,7 +38,7 @@ export function cacheManager(cacheItem){
     const timeOffset = 43200000 //12 hours in ms
     if (cacheItem.timeStamp + timeOffset < current) {
         console.log("Fetching new data");
-        fetchSurfData(cacheItem.lng, cacheItem.lat);
+        fetchData(cacheItem.lng, cacheItem.lat);
     } else {
         console.log("Populating from cache");
         setDailies(cacheItem.daily, cacheItem.hourly);
@@ -86,4 +46,24 @@ export function cacheManager(cacheItem){
         setSurfData(cacheItem.hourly);
         setWeatherData(cacheItem.hourly);
     }
+}
+
+function toast(text){
+    Toastify({
+        text: text,
+        duration: 3000,
+        close: true,
+        gravity: "top",
+        position: "center",
+        style: {
+            background: "linear-gradient(to right, #df2007, #dc4936)",
+        }
+    }).showToast();
+}
+
+function dataManager(daily, hourly){
+    setDailies(daily, hourly);
+    setHourlies(hourly);
+    setSurfData(hourly)
+    setWeatherData(hourly);
 }

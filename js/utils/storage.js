@@ -8,10 +8,8 @@ export const setToCache = (coords, name, daily, hourly, timestamp)=>{
         daily : daily,
         hourly : hourly
     }
-    console.log(obj);
     // if type object, JSON it, if not save as string
     localStorage.setItem(obj.name, JSON.stringify(obj)); // turn obj into string for storage
-    console.log("Item Stored");
 }
 
 // get local storage item

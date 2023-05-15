@@ -1,9 +1,10 @@
 import { splashScreen } from "./dom/splashDom.js";
-import { init } from "./fetchData.js";
+import { fetchData } from "./fetchData.js";
 import {splashAnims} from "./anims/splashAnim.js";
+import {coords} from "./map.js";
 
 // initialise data, menu and popup scripts
-init();
+fetchData(coords.lng, coords.lat);
 splashScreen();
 splashAnims();
 

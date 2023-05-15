@@ -1,17 +1,16 @@
 import {waveHeightIcon, tempIcon, windSpeedIcon, highlight, waveHeightStatement} from "../utils/dynamicIcons.js";
 import { cardinalDirection } from "../utils/calculations.js";
 import {breakdownAnimShow} from "../anims/mainAnims.js";
+
 const surfDataContainer = document.querySelector(".surf-data");
 const weatherDataContainer = document.querySelector(".weather-data");
-
 const currentDay = new Date().getDay();
 
 export const setSurfData = (data, daySelected = currentDay, hourSelected = 0)=>{
     surfDataContainer.innerHTML = "";
-    const filtered = data.filter((day)=>{
-        return day.dayValue === daySelected;
-    });
+    const filtered = data.filter((day)=>{ return day.dayValue === daySelected });
     const surfData = filtered[0].data[hourSelected];
+
     const currentSurf = document.createElement('div');
     currentSurf.classList.add("current-surf");
     currentSurf.innerHTML = surfHTML(
@@ -32,6 +31,7 @@ export const setSurfData = (data, daySelected = currentDay, hourSelected = 0)=>{
 export const setWeatherData = (data, daySelected = 4, hourSelected = 0)=>{
     weatherDataContainer.innerHTML = "";
     const weatherData = data[daySelected].data[hourSelected];
+
     const currentWeather = document.createElement('div');
     currentWeather.classList.add("current-weather");
     currentWeather.innerHTML = weatherHTML(
@@ -54,7 +54,7 @@ function surfHTML(waveHeightIcon, waveHeight, wavePeriod, windDirecIcon, windDir
         <div class="highlight ${highlightColor}"></div>
         <h4>Waves are ${waveHeightStatement}</h4>
         <div>
-            <img class="wave-height-icon ${waveHeightIcon}" src="./assets/wave-height.png" alt="">
+            <img class="wave-height-icon ${waveHeightIcon}" src="/assets/wave-height.png" alt="">
             <p class="wave-height">${waveHeight}m</p>
         </div>
         <div>
@@ -62,11 +62,11 @@ function surfHTML(waveHeightIcon, waveHeight, wavePeriod, windDirecIcon, windDir
             <p class="wave-period">${wavePeriod}s</p>
         </div>
         <div>
-            <img class="wind-direction-icon ${windDirecIcon}" src="./assets/wind-direction.png" alt="">
+            <img class="wind-direction-icon ${windDirecIcon}" src="/assets/wind-direction.png" alt="">
             <p class="wind-direction">${windDirec}</p>
         </div>
         <div>
-            <img class="wind-speed-icon ${windSpeedIcon}" src="./assets/wind-speed.png" alt="">
+            <img class="wind-speed-icon ${windSpeedIcon}" src="/assets/wind-speed.png" alt="">
             <p class="wind-speed">${windSpeed}m/s</p>
         </div>
     </div>
@@ -77,29 +77,29 @@ function weatherHTML(airTempIcon, temp, cloudCover, precip, humidity, vis, water
     return `
     <div class="temp-data">
         <div>
-            <img class="air-temp-icon ${airTempIcon}" src="./assets/temperature.png" alt="">
+            <img class="air-temp-icon ${airTempIcon}" src="/assets/temperature.png" alt="">
             <p class="air-temperature">${temp}°C</p>
         </div>  
         <div>
-            <img class="water-temp-icon ${waterTempIcon}" src="./assets/water-temperature.png" alt="">
+            <img class="water-temp-icon ${waterTempIcon}" src="/assets/water-temperature.png" alt="">
             <p class="water-temp">${waterTemp}°C</p>
         </div>    
         <div>
-            <img src="./assets/cloud-cover.png" alt="">
+            <img src="/assets/cloud-cover.png" alt="">
             <p class="cloud-cover">${cloudCover}%</p>
         </div> 
     </div>
     <div class="other-data">
         <div>
-            <img src="./assets/precipitation.png" alt="">
+            <img src="/assets/precipitation.png" alt="">
             <p class="precipitation">${precip}mm/h</p>
         </div>
         <div>
-            <img src="./assets/humidity.png" alt="">
+            <img src="/assets/humidity.png" alt="">
             <p class="humidity">${humidity}%</p>
         </div>
         <div>
-            <img src="./assets/visibility.png" alt="">
+            <img src="/assets/visibility.png" alt="">
             <p class="visibility">${vis}km</p>
         </div>   
     </div>

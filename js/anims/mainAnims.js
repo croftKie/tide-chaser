@@ -4,6 +4,7 @@ export const showAnims = (name, value)=>{
 };
 
 export const hideAnims = (name, value)=>{
+    console.log("fired");
     const master = gsap.timeline();
     master.to(name,{y:value,duration: 1.2});
 }
