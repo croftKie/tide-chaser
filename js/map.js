@@ -41,7 +41,7 @@ export const mapScript = ()=>{
 
 // map generation function
 async function place(e){
-    const {data} = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${e.target.value}&appid=${openWeatherKey}`);
+    const {data} = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${e.target.value}&appid=${openWeatherKey}`);
     
     if(data[0] === undefined){
         Toastify({
