@@ -262,7 +262,7 @@ body.day-gradient {
 .container .content .surf-data {
   padding: 0 20px 0 20px;
   color: rgb(8, 35, 73);
-  overflow: clip;
+  overflow: hidden;
 }
 .container .content .surf-data .current-surf {
   gap: 20px;
@@ -332,7 +332,7 @@ body.day-gradient {
 .container .content .weather-data {
   padding: 0 20px 0 20px;
   color: rgb(8, 35, 73);
-  overflow: clip;
+  overflow: hidden;
 }
 .container .content .weather-data .current-weather {
   display: grid;

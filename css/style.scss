@@ -267,7 +267,7 @@ body{
         .surf-data {
             @include padding();
             color: $base-color;
-            overflow: clip;
+            overflow: hidden;
             .current-surf{
                 gap: 20px;
                 .upper-surf-data{
@@ -332,7 +332,7 @@ body{
         .weather-data {
             @include padding();
             color: $base-color;
-            overflow: clip;
+            overflow: hidden;
             .current-weather{
                 display: grid;
                 grid-template-columns: 1fr 1fr;
