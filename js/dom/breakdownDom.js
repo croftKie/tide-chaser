@@ -7,10 +7,13 @@ const weatherDataContainer = document.querySelector(".weather-data");
 const currentDay = new Date().getDay();
 
 export const setSurfData = (data, daySelected = currentDay, hourSelected = 0)=>{
+    // resets the DOM element to blank
     surfDataContainer.innerHTML = "";
-    const filtered = data.filter((day)=>{ return day.dayValue === daySelected });
-    const surfData = filtered[0].data[hourSelected];
 
+    //filters the appropriate day of data and returns that filtered data to main function
+    const surfData = filterSurfData(data, daySelected, hourSelected);
+
+    // creates DOM element, adds  class and populates innerHTML.
     const currentSurf = document.createElement('div');
     currentSurf.classList.add("current-surf");
     currentSurf.innerHTML = surfHTML(
@@ -30,8 +33,11 @@ export const setSurfData = (data, daySelected = currentDay, hourSelected = 0)=>{
 
 export const setWeatherData = (data, daySelected = 4, hourSelected = 0)=>{
     weatherDataContainer.innerHTML = "";
+
+    // Isolates required data for weather content
     const weatherData = data[daySelected].data[hourSelected];
 
+    // populates DOM elements
     const currentWeather = document.createElement('div');
     currentWeather.classList.add("current-weather");
     currentWeather.innerHTML = weatherHTML(
@@ -104,4 +110,11 @@ function weatherHTML(airTempIcon, temp, cloudCover, precip, humidity, vis, water
         </div>   
     </div>
     `
+}
+
+function filterSurfData(data, daySelected, hourSelected){
+    const filtered = data.filter((day) => {
+        return day.dayValue === daySelected
+    });
+    return filtered[0].data[hourSelected];
 }

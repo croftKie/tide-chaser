@@ -80,9 +80,7 @@ async function mapGeneration(e){
             hideAnims('.hour', 400);
             breakdownAnimHide();
             fetchData(coords.lng, coords.lat);
-            new mapboxgl.Marker()
-                .setLngLat([coords.lng, coords.lat])
-                .addTo(map);
+            new mapboxgl.Marker().setLngLat([coords.lng, coords.lat]).addTo(map);
         });
     };
 }
