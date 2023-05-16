@@ -22,7 +22,7 @@ export const fetchData = async (lng, lat) => {
             mapScript();
             initMenu();
             mode = 1;
-        } else {
+        }
         popup(daily, hourly);
         dataManager(daily, hourly);
     } catch (err) {
@@ -30,7 +30,7 @@ export const fetchData = async (lng, lat) => {
     }
 }
 
-// Time Management for Cache
+// cache management function: returns new data if saved data is older than 12 hours, or returns original data if not.
 export function cacheManager(cacheItem){
     const current = new Date().getTime();
     const timeOffset = 43200000 //12 hours in ms
@@ -39,13 +39,11 @@ export function cacheManager(cacheItem){
         fetchData(cacheItem.lng, cacheItem.lat);
     } else {
         console.log("Populating from cache");
-        setDailies(cacheItem.daily, cacheItem.hourly);
-        setHourlies(cacheItem.hourly);
-        setSurfData(cacheItem.hourly);
-        setWeatherData(cacheItem.hourly);
+        dataManager(cacheItem.daily, cacheItem.hourly)
     }
 }
 
+// popup for data error
 function toast(text){
     Toastify({
         text: text,
@@ -59,6 +57,7 @@ function toast(text){
     }).showToast();
 }
 
+// collected functions for setting DOM elements using clean data
 function dataManager(daily, hourly){
     setDailies(daily, hourly);
     setHourlies(hourly);
