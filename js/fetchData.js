@@ -11,6 +11,7 @@ export const fetchData = async (lng, lat) => {
     const params = 'airTemperature,humidity,cloudCover,visibility,precipitation,waveHeight,wavePeriod,windDirection,windSpeed,waterTemperature';
     try {
         const base64Encoded = btoa(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}`);
+        console.log(base64Encoded);
         const {data} = await axios.get(`https://surf-proxy.vercel.app?query=${base64Encoded}`);
         data.hours.length = 24 * 7;
         // functions to separate daily average data and per hour data.
