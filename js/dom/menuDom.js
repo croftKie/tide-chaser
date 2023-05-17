@@ -13,6 +13,9 @@ const addFavourite = document.querySelector(".search-bar>div>img");
 const closeFavourite = document.querySelector(".closePopup");
 const submitFavourite = document.querySelector(".submitPopup");
 const nameOfFavourite = document.querySelector(".favouritePopup>input");
+const currentBoard = document.querySelector(".currentBoard");
+const boardSelector = document.getElementById("boards");
+const saveBoardButton = document.querySelector(".saveBoard");
 
 
 // event listeners for opening and closing sidebar menu and fix menu to scroll position
@@ -29,6 +32,7 @@ export function initMenu(){
         menu.style.top = `${window.scrollY}px`;
     });
     populateFavourites();
+    saveBoardSize();
 }
 
 // event listeners for opening "add favourite" popup, and submitting values to local storage function
@@ -99,5 +103,15 @@ function populateFavourites(){
                 zoom: 9,
             });
         });
+    });
+}
+
+// Manages saving the board size to local storage
+
+function saveBoardSize(){
+    currentBoard.innerText = boardSelector.value ? `${boardSelector.value}ft` : "7ft";
+    saveBoardButton.addEventListener("click",()=>{
+        localStorage.setItem("boardSize", boardSelector.value);
+        currentBoard.innerText = `${boardSelector.value}ft`;
     });
 }

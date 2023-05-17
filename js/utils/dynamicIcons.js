@@ -15,7 +15,26 @@ export const weatherIcon = (cloud, rain)=>{
 
 // sets wave height icon based on current wave height
 export const waveHeightIcon = (waveHeight)=>{
-    const selectedClass = waveHeight < 0.5 ? "red" : waveHeight < 1.5 ? "orange" : "green";
+    const boardSize = localStorage.getItem("boardSize") ? localStorage.getItem("boardSize") : "7";
+    console.log(boardSize);
+    let selectedClass;
+    switch (boardSize) {
+        case "5":
+            selectedClass = waveHeight < 0.65 ? "red" : waveHeight < 1.6 ? "orange" : "green";
+            break;
+        case "6":
+            selectedClass = waveHeight < 0.6 ? "red" : waveHeight < 1.5 ? "orange" : "green";
+            break;
+        case "7":
+            selectedClass = waveHeight < 0.5 ? "red" : waveHeight < 1.4 ? "orange" : "green";
+            break;
+        case "8":
+            selectedClass = waveHeight < 0.5 ? "red" : waveHeight < 1.3 ? "orange" : "green";
+            break;
+        case "9":
+            selectedClass = waveHeight < 0.4 ? "red" : waveHeight < 1.1 ? "orange" : "green";
+            break;
+    }
     return selectedClass;
 }
 
@@ -32,7 +51,26 @@ export const tempIcon = (temp)=>{
 }
 
 export const highlight = (waveHeight)=>{
-    const selectedClass = waveHeight < 0.5 ? "red" : waveHeight < 1.5 ? "orange" : "green";
+    const boardSize = localStorage.getItem("boardSize") ? localStorage.getItem("boardSize") : "7";
+    console.log(boardSize);
+    let selectedClass;
+    switch (boardSize) {
+        case "5":
+            selectedClass = waveHeight < 0.65 ? "red" : waveHeight < 1.6 ? "orange" : "green";
+            break;
+        case "6":
+            selectedClass = waveHeight < 0.6 ? "red" : waveHeight < 1.5 ? "orange" : "green";
+            break;
+        case "7":
+            selectedClass = waveHeight < 0.5 ? "red" : waveHeight < 1.4 ? "orange" : "green";
+            break;
+        case "8":
+            selectedClass = waveHeight < 0.5 ? "red" : waveHeight < 1.3 ? "orange" : "green";
+            break;
+        case "9":
+            selectedClass = waveHeight < 0.4 ? "red" : waveHeight < 1.1 ? "orange" : "green";
+            break;
+    }
     return selectedClass;
 }
 
