@@ -16,7 +16,6 @@ export const weatherIcon = (cloud, rain)=>{
 // sets wave height icon based on current wave height
 export const waveHeightIcon = (waveHeight)=>{
     const boardSize = localStorage.getItem("boardSize") ? localStorage.getItem("boardSize") : "7";
-    console.log(boardSize);
     let selectedClass;
     switch (boardSize) {
         case "5":
@@ -52,7 +51,6 @@ export const tempIcon = (temp)=>{
 
 export const highlight = (waveHeight)=>{
     const boardSize = localStorage.getItem("boardSize") ? localStorage.getItem("boardSize") : "7";
-    console.log(boardSize);
     let selectedClass;
     switch (boardSize) {
         case "5":

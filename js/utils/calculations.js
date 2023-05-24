@@ -112,5 +112,5 @@ function getDayNums(fullData){
 }
 
 export function toHours(timestamp){
-    return timestamp / 100 / 60 / 60;
+    return timestamp / 100 / 60 / 60 / 24;
 }

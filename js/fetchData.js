@@ -1,9 +1,11 @@
+import { openWeatherKey } from "../config.js";
 import { mapScript } from "./map.js";
 import { setDailies } from "./dom/dailiesDom.js";
 import { setHourlies } from "./dom/hourlyDom.js";
 import { setSurfData, setWeatherData } from "./dom/breakdownDom.js";
 import { dailyAverage, hourlyData } from "./utils/calculations.js";
 import { initMenu, popup } from "./dom/menuDom.js";
+import { setNotifications } from "./dom/notificationDom.js";
 
 // fetches data from oceanography data api
 export const fetchData = async (lng, lat) => {
@@ -67,4 +69,9 @@ function dataManager(daily, hourly){
     setHourlies(hourly);
     setSurfData(hourly)
     setWeatherData(hourly);
+}
+
+export async function getPlace(e){
+    const { data } = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${e}&appid=${openWeatherKey}`);
+    setNotifications(data[0].name, data[0].state);
 }

@@ -1,6 +1,6 @@
 import { coords } from "../map.js";
 import { getFromCache, setToCache} from "../utils/storage.js";
-import { cacheManager } from "../fetchData.js";
+import { cacheManager, getPlace } from "../fetchData.js";
 import { setDataAge } from "./notificationDom.js";
 import {hideMenuAnims, showMenuAnims} from "../anims/menuAnim.js";
 const menu = document.querySelector(".menu");
@@ -46,16 +46,30 @@ export function popup(daily, hourly){
         popupElement.classList.add("hide");
     });
     submitFavourite.addEventListener("click",()=>{
-        setToCache(
-            coords,
-            `FAV-${nameOfFavourite.value}`,
-            daily,
-            hourly,
-            new Date().getTime());
-        populateFavourites();
+        if (nameOfFavourite.value === "") {
+            Toastify({
+                text: "Add a name for your favourite spot",
+                duration: 3000,
+                close: true,
+                gravity: "top", 
+                position: "center",
+                style: {
+                  background: "linear-gradient(to right, #df2007, #dc4936)",
+                }
+              }).showToast();
+        } else {
+            setToCache(
+                coords,
+                `FAV-${nameOfFavourite.value}`,
+                daily,
+                hourly,
+                new Date().getTime());
+            populateFavourites();
+    
+            container.classList.remove("blur");
+            popupElement.classList.add("hide");
+        }
 
-        container.classList.remove("blur");
-        popupElement.classList.add("hide");
     });
 }
 
@@ -94,7 +108,9 @@ function populateFavourites(){
         button.addEventListener("click", () => {
             console.log("loaded");
             const item = getFromCache(button.attributes[1].value);
+            console.log(button.attributes[1].value.split("FAV-")[1])
             setDataAge(item.timestamp, item.lng, item.lat);
+            getPlace(button.attributes[1].value.split("FAV-")[1]);
             cacheManager(item);
             new mapboxgl.Map({
                 container: 'map',
@@ -112,6 +128,6 @@ function saveBoardSize(){
     currentBoard.innerText = boardSelector.value ? `${boardSelector.value}ft` : "7ft";
     saveBoardButton.addEventListener("click",()=>{
         localStorage.setItem("boardSize", boardSelector.value);
-        currentBoard.innerText = `${boardSelector.value}ft`;
+        currentBoard.innerText = `${localStorage.getItem(boardSelector.value)}ft`;
     });
 }
