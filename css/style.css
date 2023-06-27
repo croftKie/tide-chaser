@@ -468,7 +468,22 @@ body.day-gradient {
   align-items: center;
   gap: 10px;
 }
+.container .menu .boardSelector .boardSelect {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.container .menu .boardSelector .boardSelect button {
+  background: none;
+  outline: none;
+  border: none;
+}
+.container .menu .boardSelector .boardSelect button img {
+  height: 20px;
+}
 .container .menu .boardSelector p {
+  padding-left: 5px;
   color: rgb(8, 35, 73);
   font-size: 0.8rem;
 }
@@ -678,6 +693,20 @@ body.day-gradient {
     height: 90%;
     width: 20vw;
     border-radius: 10px;
+  }
+  .container .menu .boardSelector .boardSelect {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .container .menu .boardSelector .boardSelect button {
+    background: none;
+    outline: none;
+    border: none;
+  }
+  .container .menu .boardSelector .boardSelect button img {
+    height: 20px;
   }
   .splash {
     gap: 100px;
