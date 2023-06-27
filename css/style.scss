@@ -562,17 +562,29 @@ body {
   top: 23%;
   left: 5%;
   background-color: white;
-  border-radius: 50px;
+  border-radius: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   padding: 10px 10px 10px 10px;
   color: $base-color;
+  gap: 20px;
+  div {
+    width: 97%;
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  p {
+    text-align: center;
+  }
   img {
     height: 30px;
     width: 30px;
     border: 2px solid $base-color;
-    border-radius: 50px;
+    border-radius: 10px;
     padding: 2px;
     cursor: pointer;
     &:active {
@@ -584,7 +596,7 @@ body {
     border: 2px solid black;
     outline: none;
     background: none;
-    border-radius: 50px;
+    border-radius: 10px;
     padding-left: 10px;
     font-weight: bold;
     box-shadow: inset 1px 1px 1px 1px rgba(33, 102, 159, 0.464);
