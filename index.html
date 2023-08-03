@@ -8,7 +8,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
     <title>Surf Report</title>
-    <link rel="icon" href="./assets/surf-fav.png" type="image/x-icon" />
+    <link rel="icon" type="image/x-icon" href="/assets/surf-fav.png">
     <link rel="stylesheet" href="css/style.css" />
     <link
       rel="stylesheet"
@@ -108,7 +108,8 @@
       </div>
     </div>
     <div class="favouritePopup hide">
-      <div>
+      <h3>Add a Favourite Spot</h3>
+      <div class="spot-input">
         <input
           onclick="this.select()"
           placeholder="Name the surf spot"
@@ -116,14 +117,15 @@
           name="location"
           id=""
         />
-        <img class="submitPopup" src="./assets/check.png" alt="" />
-        <img class="closePopup" src="./assets/close.png" alt="" />
+        <div class="spot-buttons">
+          <button class="submitPopup"><img src="./assets/check.png" alt="" />Add</button>
+          <button class="closePopup"><img src="./assets/close.png" alt="" />Cancel</button>
+        </div>
       </div>
-      <div>
-        <p>
-          Give your favourite surf spot a name and click the check mark to add
-          it to your favourites menu
-        </p>
+      <div class="text">
+        <p><img src="./assets/circle-1.png" alt="">Give your surf spot a name.</p>
+        <p><img src="./assets/circle-2.png" alt="">Click add to save it.</p>
+        <p><img src="./assets/circle-3.png" alt="">Find your spot in the favourites.</p>
       </div>
     </div>
     <div class="splash hide">

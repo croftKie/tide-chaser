@@ -540,9 +540,11 @@ body.day-gradient {
 .favouritePopup {
   position: absolute;
   width: 90vw;
+  height: 50vh;
   top: 23%;
   left: 5%;
   background-color: white;
+  box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.258);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -555,47 +557,63 @@ body.day-gradient {
 .favouritePopup div {
   width: 97%;
   display: flex;
-  -moz-column-gap: 10px;
-       column-gap: 10px;
+  flex-direction: column;
+  gap: 10px;
   align-items: center;
   justify-content: center;
 }
-.favouritePopup p {
+.favouritePopup div div {
+  display: flex;
+  flex-direction: row;
+}
+.favouritePopup .text p {
+  width: 87.5%;
   text-align: center;
+  display: flex;
+  gap: 4%;
 }
-.favouritePopup img {
-  height: 30px;
-  width: 30px;
-  border: 2px solid rgb(8, 35, 73);
-  border-radius: 10px;
-  padding: 2px;
-  cursor: pointer;
-}
-.favouritePopup img:active {
-  transform: scale(90%);
+.favouritePopup .text p img {
+  height: 20px;
 }
 .favouritePopup input {
-  height: 30px;
+  height: 50px;
+  width: 80%;
   border: 2px solid black;
   outline: none;
   background: none;
   border-radius: 10px;
   padding-left: 10px;
-  font-weight: bold;
-  box-shadow: inset 1px 1px 1px 1px rgba(33, 102, 159, 0.464);
 }
 .favouritePopup button {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 40%;
   border: none;
   outline: none;
-  border-radius: 50px;
-  background-color: rgb(8, 35, 73);
-  color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   cursor: pointer;
 }
 .favouritePopup button:active {
   transform: scale(90%);
+}
+.favouritePopup button img {
+  height: 20px;
+  width: 20px;
+  border: 2px solid rgb(8, 35, 73);
+  border-radius: 10px;
+  padding: 2px;
+  cursor: pointer;
+}
+.favouritePopup button img:active {
+  transform: scale(90%);
+}
+.favouritePopup .submitPopup {
+  background-color: #65e86e;
+}
+.favouritePopup .closePopup {
+  background-color: #f15151;
 }
 .favouritePopup.hide {
   display: none;
