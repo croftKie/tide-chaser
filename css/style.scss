@@ -149,6 +149,7 @@ body {
       align-items: center;
       justify-content: flex-end;
       padding-right: 12px;
+      gap: 3%;
       img {
         @include navbarImg();
         cursor: pointer;
@@ -177,7 +178,7 @@ body {
         align-items: center;
         width: 90%;
         img {
-          height: 25px;
+          height: 20px;
           cursor: pointer;
           filter: invert(100%);
         }
@@ -185,9 +186,6 @@ body {
           &:active {
             transform: scale(90%);
           }
-        }
-        img:nth-of-type(2) {
-          height: 20px;
         }
         input {
           width: 75%;
@@ -580,18 +578,18 @@ body {
     gap: 10px;
     align-items: center;
     justify-content: center;
-    div{
+    div {
       display: flex;
       flex-direction: row;
     }
   }
-  .text{
+  .text {
     p {
       width: 87.5%;
       text-align: center;
       display: flex;
       gap: 4%;
-      img{
+      img {
         height: 20px;
       }
     }
@@ -630,10 +628,10 @@ body {
       }
     }
   }
-  .submitPopup{
+  .submitPopup {
     background-color: #65e86e;
   }
-  .closePopup{
+  .closePopup {
     background-color: #f15151;
   }
   &.hide {
@@ -671,10 +669,7 @@ body {
       .search-bar {
         div {
           img {
-            height: 35px;
-          }
-          img:nth-of-type(2) {
-            height: 30px;
+            height: 25px;
           }
         }
       }

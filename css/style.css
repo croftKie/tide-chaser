@@ -53,6 +53,7 @@ body.day-gradient {
   align-items: center;
   justify-content: flex-end;
   padding-right: 12px;
+  gap: 3%;
 }
 .container .upper .settings img {
   height: 30px;
@@ -84,15 +85,12 @@ body.day-gradient {
   width: 90%;
 }
 .container .search .search-bar div img {
-  height: 25px;
+  height: 20px;
   cursor: pointer;
   filter: invert(100%);
 }
 .container .search .search-bar div img:nth-of-type(1):active {
   transform: scale(90%);
-}
-.container .search .search-bar div img:nth-of-type(2) {
-  height: 20px;
 }
 .container .search .search-bar div input {
   width: 75%;
@@ -639,10 +637,7 @@ body.day-gradient {
     height: 40px;
   }
   .container .search .search-bar div img {
-    height: 35px;
-  }
-  .container .search .search-bar div img:nth-of-type(2) {
-    height: 30px;
+    height: 25px;
   }
   .container .search .map {
     width: 40vw;
