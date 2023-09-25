@@ -20,7 +20,6 @@ export const fetchData = async (lng, lat) => {
   }
 
   try {
-    console.log(`https://surf-proxy.vercel.app?query=${base64Encoded}`);
     const { data } = await axios.get(
       `https://surf-proxy.vercel.app?query=${base64Encoded}`
     );
@@ -32,7 +31,7 @@ export const fetchData = async (lng, lat) => {
     // if it is the first load by user, run map and menu initialisation
     if (mode === 0) {
       mapScript();
-      initMenu();
+      // initMenu();
       mode = 1;
     }
     popup(daily, hourly);
