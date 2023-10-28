@@ -1,34 +1,21 @@
 <html lang="en"><head>
     <meta charset="UTF-8"/> <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <link rel="shortcut icon" href="./public/assets/surf-fav.png" type="image/x-icon"/> <title>Tide Chaser</title> <script src="./public/plugins/axios.min.js"></script> <script src="./public/plugins/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script> <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script> <script type="text/javascript" src="./public/plugins/toastify-js"></script> <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet"/> <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/> <link rel="stylesheet" type="text/css" href="./public/plugins/toastify.min.css"/> <link rel="stylesheet" href="./public/plugins/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/> <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet"/> <link rel="stylesheet" href="./public/css/index.min.css"/> <script defer="" type="module" src="./public/js/main.js"></script> </head><body>
-    <nav id="header" class="w-full z-30 top-0 text-white">
-      <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
-        <div class="pl-4 flex items-center">
-          <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
-            TIDE CHASER
-          </a> </div> <div class="block lg:hidden pr-4">
-          <button id="nav-toggle" class="flex items-center p-1 text-pink-800 hover:text-gray-900 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-            <svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <title>Menu</title> <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/> </svg> </button> </div> <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
-          <ul class="list-reset lg:flex justify-end flex-1 items-center">
-            <li class="mr-3">
-              <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="#how-it-works">How it works  <li class="mr-3">
-              <a class="inline-block text-black font-bold no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#who-its-for">Who its for   <a href="./app.html">
-            <button id="navAction" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-              Go to App
-            </button> </a>   <hr class="border-b border-gray-100 opacity-25 my-0 py-0"/>   </a></li></a></li></ul></div></div></nav>
-    <section class="hero pt-24">
-      <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-        <!--Left Col--><div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
+    <nav id="header" class="">
+      <div class="logo">
+        <img src="./public/assets/surf.png" alt=""/> <a class="" href="/"> TIDE CHASER </a> </div> </nav> 
+    <section class="hero">
+      <div class="contain">
+        <!--Left Col--><div class="left">
           <p class="uppercase tracking-loose w-full">Ready to hit the waves?</p> <h1 class="my-4 text-5xl font-bold leading-tight">
             Find which waves are breaking near you.
           </h1> <p class="leading-normal text-2xl mb-8">
             Use Tide Chaser to keep track of your favourite breaks and be ready
             to go when they are.
-          </p> <a href="./tidechaser.html">
+          </p> <a href="./app.html">
             <button id="navAction" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
               Go to App
-            </button> </a> </div> <!--Right Col--><div class="w-full md:w-3/5 py-6 text-center">
-          <form action=""></form> </div> </div> </section> 
+            </button> </a> </div> <!--Right Col--><div class="right hero-image">
+          <img src="./public/assets/images/surf-hero.jpg" alt=""/> </div> </div> </section> 
     <section class="upper-divide relative -mt-12 lg:-mt-24">
       <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600&display=swap");
 
+// REUSABLE CSS COMPONENTS
 @mixin daily-hourly-template() {
   align-items: center;
   display: flex;
@@ -77,11 +78,12 @@
 @mixin padding() {
   padding: 0 20px 0 20px;
 }
-// transforms
+// CSS TRANSFORMS
 @mixin scale-90 {
   transform: scale(90%);
 }
 
+// VARIABLES
 $base-color: rgb(8, 35, 73);
 $mid-color: rgb(8, 67, 122);
 $light-color: rgb(73, 179, 195);
@@ -120,7 +122,7 @@ body {
 }
 
 //
-//  Mobile styles
+//  Mobile styles (DEFAULT)
 //
 
 body {
