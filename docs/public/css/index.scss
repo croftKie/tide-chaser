@@ -61,10 +61,29 @@ nav {
 }
 
 @media screen and (max-width: 900px) {
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    .logo {
+      width: 60%;
+      align-items: center;
+      a {
+        font-size: 1.5rem;
+      }
+    }
+  }
   .hero {
     .contain {
       flex-direction: column;
       .left {
+        h1 {
+          font-size: 1.5rem;
+          p {
+            font-size: 0.5rem;
+          }
+        }
       }
       .right {
         justify-content: center;
