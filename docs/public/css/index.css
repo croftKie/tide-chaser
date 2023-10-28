@@ -1,0 +1,22 @@
+body {
+  background: linear-gradient(0deg, #3353d5 75%, #51d1da 100%);
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .logo {
+  flex: 1;
+}
+nav .logo img {
+  height: 50px;
+}
+nav .menu {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+}/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,17 @@
+{
+  "name": "tide-chaser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx mime-js",
+    "dev": "node node_modules/mime-js/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mime-js": "^1.2.13"
+  }
+}

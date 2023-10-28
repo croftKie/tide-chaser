@@ -1,0 +1,34 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="search">
+      <div class="search-bar">
+        <div>
+          <img class="open-menu" src="../../public/assets/heart.png" alt="" />
+          <img class="add-fave" src="../../public/assets/add.png" alt="" />
+          <img
+            class="make-search"
+            src="../../public/assets/search.svg"
+            alt=""
+          />
+          <input
+            onclick="this.select()"
+            placeholder="Search for a city to open the map"
+            id="search-place"
+            type="text"
+          />
+        </div>
+        <img
+          class="down-arrow"
+          src="../../public/assets/down-arrow.png"
+          alt=""
+        />
+      </div>
+      <div class="map" id="map"></div>
+    </section>
+  </body>
+</html>
