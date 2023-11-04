@@ -480,10 +480,15 @@ body {
       justify-content: flex-end;
       gap: 10px;
       .boardSelect {
-        width: 80%;
+        width: 90%;
         display: flex;
         align-items: flex-start;
-        justify-content: space-around;
+        justify-content: space-between;
+        #boards{
+          background: none;
+          border: none;
+          border-bottom: 2px solid black;
+        }
         button {
           background: none;
           outline: none;
@@ -681,7 +686,6 @@ body {
       border-radius: 10px;
       .boardSelector {
         .boardSelect {
-          width: 80%;
           display: flex;
           align-items: center;
           justify-content: space-around;

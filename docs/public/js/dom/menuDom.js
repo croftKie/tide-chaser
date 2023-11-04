@@ -21,7 +21,6 @@ const saveBoardButton = document.querySelector(".saveBoard");
 
 // event listeners for opening and closing sidebar menu and fix menu to scroll position
 export function initMenu() {
-  console.log("hello world");
   settingsOpen.addEventListener("click", () => {
     menu.classList.remove("hide");
     populateFavourites();
@@ -126,7 +125,8 @@ function populateFavourites() {
 // Manages saving the board size to local storage
 
 function saveBoardSize() {
-  currentBoard.innerText = boardSelector.value
+  console.log(boardSelector.value);
+  currentBoard.innerText = boardSelector.value && localStorage.getItem("boardSize")
     ? `${localStorage.getItem("boardSize")}ft`
     : "7ft";
   saveBoardButton.addEventListener("click", () => {
