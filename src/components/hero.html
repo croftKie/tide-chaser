@@ -5,29 +5,33 @@
     <title>Document</title>
   </head>
   <body>
-    <section class="hero">
-      <div class="contain">
-        <!--Left Col-->
-        <div class="left">
-          <p class="">Ready to hit the waves?</p>
-          <h1 class="">Find which waves are breaking near you.</h1>
-          <p class="">
-            Use Tide Chaser to keep track of your favourite breaks and be ready
-            to go when they are.
-          </p>
-          <a href="./app.html">
-            <button
-              id="navAction"
-              class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-            >
-              Go to App
-            </button>
-          </a>
-        </div>
-        <!--Right Col-->
-        <div class="right hero-image">
-          <img src="../../public/assets/images/surf-hero.jpg" alt="" />
-        </div>
+    <section
+      class="w-full container columns-2 flex flex-col md:flex-row max-w-full mb-10 gap-5"
+    >
+      <!--Left Col-->
+      <div
+        class="flex flex-col flex-1 justify-center items-center md:items-end gap-4 text-center md:text-right"
+      >
+        <h4 class="text-lg w-2/3">Ready to hit the waves?</h4>
+        <h1 class="text-4xl font-bold w-2/3 text-white">Find the Breaks.</h1>
+        <p class="w-2/3 md:w-1/2">
+          Use Tide Chaser to keep track of your favourite breaks and be ready to
+          go when they are.
+        </p>
+        <a
+          href="./app.html"
+          class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-black hover:bg-white mt-4 lg:mt-0"
+        >
+          <button id="navAction" class="">Sign In / Sign Up</button>
+        </a>
+      </div>
+      <!--Right Col-->
+      <div class="flex flex-1 items-center p-3 md:p-0">
+        <img
+          class="h-2/3 border rounded border-black"
+          src="../../public/assets/images/surf-hero.jpg"
+          alt=""
+        />
       </div>
     </section>
   </body>
