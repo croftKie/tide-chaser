@@ -1,0 +1,421 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand";
+}
+
+.small-img {
+  width: 35px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 25px;
+  overflow: hidden;
+}
+.card .cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.card .cardBody .cardTitle {
+  padding: 2.5% 5% 2.5% 10%;
+  display: flex;
+  justify-content: flex-end;
+}
+.card .cardBody .cardTitle h4 {
+  font-size: 2rem;
+}
+.card .cardBody .cardText {
+  padding: 10px;
+}
+.card .cardBody .cardLink {
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  justify-content: flex-start;
+  padding-right: 15%;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.list .item {
+  padding-bottom: 10px;
+  border-bottom: 3px solid rgb(99, 207, 228);
+}
+.list .item h3 {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.button,
+button {
+  height: 40px;
+  width: 120px;
+  background-color: rgb(247, 247, 247);
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-alt-color {
+  background-color: rgb(99, 207, 228);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+  margin-bottom: 40px;
+}
+.text h3 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+.text p {
+  width: 50%;
+  font-size: 1.2rem;
+}
+
+.pricingCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify;
+  border: 2px solid rgb(99, 207, 228);
+  border-radius: 10px;
+  gap: 15px;
+  padding: 20px;
+}
+.pricingCard .header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  background-color: rgb(99, 207, 228);
+  width: 100%;
+  border-radius: 10px;
+  padding: 5px;
+}
+.pricingCard .header-text img {
+  filter: invert(100%);
+}
+
+.bg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(99, 207, 228);
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homeNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  height: 45px;
+  border-radius: 10px;
+  padding: 0 10px 0 10px;
+}
+.homeNav .brand {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.homeNav .brand img {
+  width: 35px;
+}
+.homeNav .brand h4 {
+  font-size: 1.75rem;
+}
+.homeNav .links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+.homeNav .links a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+}
+.homeNav .links a:hover {
+  text-decoration: underline;
+}
+.homeNav .links p {
+  cursor: default;
+}
+
+.hero {
+  height: 400px;
+  display: flex;
+  width: 80%;
+  margin: 50px 0 100px 0;
+}
+.hero .col {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero .col img {
+  width: 60%;
+  border-radius: 10px;
+  box-shadow: 20px 20px 0 0 rgb(255, 255, 255);
+}
+.hero .col h2 {
+  margin-bottom: 30px;
+  font-size: 2.8rem;
+  width: 75%;
+}
+.hero .col p {
+  width: 80%;
+}
+.hero .col .buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 30px;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 0 100px 0;
+}
+.features .cards {
+  margin: 50px 0 50px 0;
+  width: 80%;
+  display: flex;
+  gap: 20px;
+}
+
+.uses {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10% 20% 200px 20%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 350px 0 0 0;
+}
+
+.pricing {
+  padding: 50px 0 100px 0;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pricing .pricingCards {
+  display: flex;
+  width: 40%;
+  gap: 60px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  padding: 60px 0 35px 0;
+  gap: 20px;
+  color: black;
+  background-color: white;
+}
+.footer .links {
+  display: flex;
+  gap: 10px;
+}
+.footer .links a {
+  text-decoration: none;
+  color: black;
+}
+
+.signinHero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: 50px 0 50px 0;
+}
+.signinHero .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0 40px 0;
+  gap: 10px;
+}
+.signinHero .text h2 {
+  font-size: 2rem;
+}
+.signinHero form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.signinHero form div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.signinHero form div input {
+  width: 75%;
+  height: 40px;
+  border-radius: 7.5px;
+  padding-left: 10px;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.pricingChoice {
+  padding: 5% 25% 10% 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 350px 0 0 0;
+}
+.pricingChoice .pricingCards {
+  display: flex;
+  margin: 10% 0 10% 0;
+  gap: 40px;
+}
+
+.faq {
+  width: 100%;
+  background-color: white;
+  height: 750px;
+}
+
+@media screen and (max-width: 600px) {
+  .text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2px;
+    margin-bottom: 40px;
+  }
+  .text h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    width: 90%;
+  }
+  .text p {
+    width: 80%;
+    font-size: 1.2rem;
+  }
+  .list {
+    margin: 0 5% 0 5%;
+  }
+  .list .item h3 {
+    font-size: 1.4rem;
+    width: 70%;
+    margin-bottom: 10px;
+  }
+  .homeNav {
+    width: 90%;
+  }
+  .homeNav .brand h4 {
+    font-size: 1rem;
+  }
+  .homeNav .links a {
+    font-size: 0.9rem;
+  }
+  .homeNav .links .button {
+    display: none;
+  }
+  .hero {
+    margin-top: 80px;
+    width: 100%;
+  }
+  .hero .hero-img {
+    display: none;
+  }
+  .features .cards {
+    flex-direction: column;
+  }
+  .uses {
+    border-radius: 200px 0 0 0;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 100px;
+  }
+  .pricing .pricingCards {
+    flex-direction: column;
+    width: 90%;
+    gap: 20px;
+  }
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 60px 0 35px 0;
+    gap: 20px;
+    color: black;
+    background-color: white;
+  }
+  .footer h2 {
+    font-size: 1rem;
+  }
+  .footer .links {
+    display: flex;
+    gap: 10px;
+  }
+  .footer .links a {
+    text-decoration: none;
+    color: black;
+  }
+  .signinHero {
+    width: 90%;
+    margin-top: 30px;
+  }
+  .signinHero .text p {
+    display: none;
+  }
+  .signinHero form {
+    gap: 10px;
+  }
+  .signinHero form div input {
+    width: 85%;
+  }
+  .pricingChoice {
+    padding: 15% 7.5% 10% 7.5%;
+    border-radius: 250px 0 0 0;
+  }
+  .pricingChoice .pricingCards {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 2% 0 2% 0;
+    gap: 40px;
+  }
+  .faq {
+    width: 100%;
+    background-color: white;
+    height: 750px;
+  }
+}/*# sourceMappingURL=home.css.map */
