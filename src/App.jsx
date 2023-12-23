@@ -1,11 +1,4 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  decrement,
-  increment,
-  incrementByAmount,
-  selectCount,
-} from "./redux/counterSlice";
+import React, { useEffect, useState } from "react";
 import "./css/app.css";
 import Home from "./comps/Home";
 import Tidechaser from "./comps/Tidechaser";
