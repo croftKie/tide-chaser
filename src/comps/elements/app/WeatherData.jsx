@@ -1,4 +1,4 @@
-function WeatherData() {
+function WeatherData({ data }) {
   return (
     <div className="weather-data">
       <div className="current-weather">

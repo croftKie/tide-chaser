@@ -5,7 +5,7 @@ export const fetchData = async (lng, lat) => {
     const { data } = await axios.get(
       `https://tider-chaser-server.onrender.com`
     );
-    dispatch(setData(data));
+    return data;
     // let mode = 0;
     // // if it is the first load by user, run map and menu initialisation
     // if (mode === 0) {

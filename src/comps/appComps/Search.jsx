@@ -74,7 +74,6 @@ function Search() {
       });
       map.current.on("click", (e) => {
         // setNotifications(data[0].name, data[0].state, data[0].lon, data[0].lat); //sets infobar data
-        console.log(data[0]);
         dispatch(
           setInfoBarData({
             state: data[0].name,
@@ -84,6 +83,7 @@ function Search() {
 
         const { lng, lat } = e.lngLat;
         dispatch(setCurrentCoords([lng, lat]));
+        console.log(lng, lat);
 
         // hideAnims(".day", -400); //hides day cards
         // hideAnims(".hour", 400); // hides hour cards

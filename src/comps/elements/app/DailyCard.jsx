@@ -1,15 +1,15 @@
 import waveHeightImg from "../../../assets/wave-height.png";
 
-function DailyCard() {
+function DailyCard({ data }) {
   return (
     <div className="day">
-      <h3>day</h3>
+      <h3>{data.day}</h3>
       <div>
         <img className="wave-score" src={waveHeightImg} alt="" />
-        <p>TESTm</p>
+        <p>{data.waveHeight}m</p>
       </div>
       <img src="./public/assets/weather/${image}content" alt="" />
-      <p>TEST°C</p>
+      <p>{data.temp}°C</p>
     </div>
   );
 }

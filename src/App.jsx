@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import "./css/app.css";
 import Home from "./comps/Home";
 import Tidechaser from "./comps/Tidechaser";

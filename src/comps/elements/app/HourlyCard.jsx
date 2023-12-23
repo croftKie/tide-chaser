@@ -1,10 +1,10 @@
 import waveHeightImage from "../../../assets/wave-height.png";
 
-function HourlyCard() {
+function HourlyCard({ data }) {
   return (
     <div className="hour">
       <img className="wave-type" src={waveHeightImage} alt="" />
-      <h3>day</h3>
+      <h3>{new Date(data.time).getHours()}</h3>
     </div>
   );
 }

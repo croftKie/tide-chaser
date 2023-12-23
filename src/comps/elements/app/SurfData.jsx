@@ -1,4 +1,4 @@
-function SurfData() {
+function SurfData({ data }) {
   return (
     <div className="surf-data">
       <div className="current-surf">
