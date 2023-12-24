@@ -1,6 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-  data: [],
+  data: [
+    {
+      daily: [],
+      hourly: [],
+    },
+  ],
   currentCoords: [],
   infoBar: { name: "El Sardinero", state: "Santander" },
 };

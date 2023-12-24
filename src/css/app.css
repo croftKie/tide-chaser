@@ -49,6 +49,7 @@ body.day-gradient {
 }
 .upper .links img {
   height: 30px;
+  cursor: pointer;
 }
 
 .search {
@@ -361,92 +362,144 @@ body.day-gradient {
 .dashboard .weather-data .current-weather div p {
   font-size: 1.2rem;
 }
-.dashboard .menu {
-  transform: translateX(420px);
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 40px 40px 4fr 1fr;
-}
-.dashboard .menu .close img:active {
-  transform: scale(90%);
-}
-.dashboard .menu .favourites {
-  color: rgb(8, 35, 73);
-}
-.dashboard .menu .favourites .item {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: flex-start;
-  padding: 0 5px 0 5px;
-  align-items: center;
-  margin-bottom: 10px;
-  border: 2px solid black;
-  border-radius: 5px;
-  padding-bottom: 5px;
-}
-.dashboard .menu .favourites .item .location-name {
-  width: 100%;
-}
-.dashboard .menu .favourites .item .location-name p {
-  font-size: 1.1rem;
-}
-.dashboard .menu .favourites .item .buttons {
-  width: 100%;
+.dashboard .detailedForecast {
+  margin-top: 40px;
+  margin-bottom: 100px;
   display: flex;
   justify-content: center;
-  gap: 10%;
 }
-.dashboard .menu .favourites .item .buttons button {
-  flex: 1;
-  height: 20px;
+.dashboard .detailedForecast .tableContainer {
+  width: 400px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+  overflow-x: scroll;
+}
+.dashboard .detailedForecast .tableContainer .row {
+  display: flex;
+  padding-bottom: 10px;
+  border-bottom: 3px solid white;
+  height: 50px;
+}
+.dashboard .detailedForecast .tableContainer .row .day {
+  text-align: center;
   background-color: white;
   color: black;
-  font-family: "Nunito";
-  font-size: 0.8rem;
-  outline: none;
-  border: none;
-  border: 2px solid black;
   border-radius: 5px;
-}
-.dashboard .menu .favourites .item .buttons button:active {
-  transform: scale(90%);
-}
-.dashboard .menu .boardSelector {
-  border-top: 1px solid grey;
-  color: rgb(8, 35, 73);
-  padding: 5px;
+  width: 200px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  gap: 10px;
+  justify-content: center;
 }
-.dashboard .menu .boardSelector .boardSelect {
-  width: 90%;
+.dashboard .detailedForecast .tableContainer .row .day h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+}
+.dashboard .detailedForecast .tableContainer .row .item {
+  width: 200px;
+  text-align: center;
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
 }
-.dashboard .menu .boardSelector .boardSelect #boards {
-  background: none;
-  border: none;
-  border-bottom: 2px solid black;
-}
-.dashboard .menu .boardSelector .boardSelect button {
-  background: none;
-  outline: none;
-  border: none;
-}
-.dashboard .menu .boardSelector .boardSelect button img {
-  height: 20px;
-}
-.dashboard .menu .boardSelector p {
-  padding-left: 5px;
-  color: rgb(8, 35, 73);
-  font-size: 0.8rem;
+.dashboard .detailedForecast .tableContainer .row .item h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
 }
 
+.menu {
+  position: absolute;
+  background-color: white;
+  top: 0;
+  width: 70vw;
+  left: 15vw;
+  border-radius: 0 0 20px 20px;
+  color: black;
+}
+.menu .menu-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+}
+.menu .menu-container .favourites {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.menu .menu-container .favourites .add {
+  display: flex;
+  flex-direction: column;
+}
+.menu .menu-container .favourites .add .add-input {
+  display: flex;
+  gap: 10px;
+}
+.menu .menu-container .favourites .items {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 20px;
+  scrollbar-width: none;
+}
+.menu .menu-container .favourites .items::-webkit-scrollbar {
+  display: none;
+}
+.menu .menu-container .favourites .items .fav {
+  background-color: rgb(99, 207, 228);
+  border-radius: 15px;
+  padding: 15px;
+}
+.menu .menu-container .favourites .items .fav .row {
+  display: flex;
+  justify-content: space-around;
+  width: 200px;
+}
+.menu .menu-container .board-selector {
+  display: flex;
+}
+.menu .menu-container .board-selector .col {
+  flex: 1;
+  padding: 30px;
+}
+.menu .menu-container .board-selector .select {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.menu .menu-container .board-selector .select .selector {
+  display: flex;
+  gap: 10px;
+}
+.menu .menu-container .board-selector .select .selector select {
+  flex: auto;
+}
+.menu .menu-container .board-selector .view {
+  margin: 30px;
+  background-color: rgb(99, 207, 228);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.menu .menu-container .tutorial {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+.menu .menu-container .tutorial .tut-item {
+  flex: 1;
+  height: 300px;
+  background-color: rgb(99, 207, 228);
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
 @media screen and (min-width: 1000px) {
   body {
     min-height: 100vh;
@@ -576,25 +629,5 @@ body.day-gradient {
     margin: 0;
     padding: 0;
     font-size: 0.9rem;
-  }
-  body .menu {
-    top: 20px;
-    left: 80vw;
-    height: 90%;
-    width: 20vw;
-    border-radius: 10px;
-  }
-  body .menu .boardSelector .boardSelect {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-  body .menu .boardSelector .boardSelect button {
-    background: none;
-    outline: none;
-    border: none;
-  }
-  body .menu .boardSelector .boardSelect button img {
-    height: 20px;
   }
 }/*# sourceMappingURL=app.css.map */

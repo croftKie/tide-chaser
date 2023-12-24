@@ -10,8 +10,9 @@ import info from "../../assets/info.png";
 import DetailedForecast from "../elements/app/DetailedForecast";
 
 function Dashboard() {
-  const dataSelector = useSelector(selectData);
   const dispatch = useDispatch();
+  const dailyContainerRef = useRef();
+  const dataSelector = useSelector(selectData);
   const [selectedDay, setSelectedDay] = useState(0);
   const [selectedHour, setSelectedHour] = useState(0);
 
@@ -22,13 +23,27 @@ function Dashboard() {
   useEffect(() => {
     handleGetDataOnLoad();
   }, []);
-  // console.log(dataSelector);
+
+  const handleDailyClick = (e) => {
+    Array.from(dailyContainerRef.current.children).forEach((child) => {
+      child.classList.remove("clicked");
+    });
+    setClicked(e);
+  };
+
+  console.log(dataSelector);
   return (
     <section className="dashboard">
-      <div className="daily">
+      <div ref={dailyContainerRef} className="daily">
         {dataSelector.daily &&
           dataSelector.daily.map((item, i) => {
-            return <DailyCard key={i} data={item} />;
+            return (
+              <DailyCard
+                key={i}
+                data={item}
+                handleDailyClick={handleDailyClick}
+              />
+            );
           })}
       </div>
       <div className="hourly-container">
@@ -55,7 +70,7 @@ function Dashboard() {
         }
       />
       <h4 className="currentCondition">Detailed Forecast</h4>
-      <DetailedForecast />
+      <DetailedForecast data={dataSelector.daily && dataSelector.daily} />
     </section>
   );
 }

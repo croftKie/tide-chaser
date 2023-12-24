@@ -1,8 +1,15 @@
+import { useState } from "react";
 import waveHeightImg from "../../../assets/wave-height.png";
 
 function DailyCard({ data }) {
+  const [clicked, setClicked] = useState(false);
   return (
-    <div className="day">
+    <div
+      onClick={() => {
+        setClicked(!clicked);
+      }}
+      className={clicked ? "day clicked" : "day"}
+    >
       <h3>{data.day}</h3>
       <div>
         <img className="wave-score" src={waveHeightImg} alt="" />

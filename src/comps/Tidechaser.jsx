@@ -6,13 +6,12 @@ import InfoBar from "./appComps/infoBar";
 import Dashboard from "./appComps/dashboard";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { setData, selectData } from "../redux/surfDataSlice";
-import axios from "axios";
+import { selectMenuState, selectMenuContent } from "../redux/uiSlice";
 import { fetchData } from "../utilities/fetchData";
 
 const Tidechaser = () => {
-  const dispatch = useDispatch();
-  const dataSelector = useSelector(selectData);
+  const menuState = useSelector(selectMenuState);
+  const menuContent = useSelector(selectMenuContent);
 
   useEffect(() => {
     fetchData();
@@ -24,7 +23,7 @@ const Tidechaser = () => {
       <Search />
       <InfoBar />
       <Dashboard />
-      {/* <Menu /> */}
+      {menuState ? <Menu menuContent={menuContent} /> : <></>}
     </div>
   );
 };
