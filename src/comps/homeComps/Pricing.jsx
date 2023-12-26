@@ -6,9 +6,7 @@ function Pricing() {
     <section className="pricing">
       <HeaderText
         heading="Pricing"
-        text="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum enim
-          quo repellat fuga cupiditate illum provident quae ab dicta saepe.
-          Nobis minus quam aspernatur earum voluptatum ea maxime unde saepe."
+        text="Our goal with Tide Chaser is to create a highly accurate wave report, and surfing companion that is also accesible and reasonably priced. We do maintain our own servers and databases so have some running costs that come with the application."
         buttonText="Join Today"
         buttonColor="button-alt-color"
       />
@@ -16,18 +14,12 @@ function Pricing() {
         <PricingCard
           headingImg=""
           headingText="Free Tier"
-          cardText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-              nesciunt voluptatibus dolorum at quasi ipsa minus voluptas,
-              numquam tempore. Quos sed praesentium omnis ut architecto laborum
-              exercitationem tempore accusamus nisi?"
+          cardText="You get access to the Tide Chaser application, and can search for up to 5 breaks per day to get the daily report for that break. Upgrade to the subscription tier to get the 7 day report."
         />
         <PricingCard
           headingImg=""
           headingText="Subscription Tier"
-          cardText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-              nesciunt voluptatibus dolorum at quasi ipsa minus voluptas,
-              numquam tempore. Quos sed praesentium omnis ut architecto laborum
-              exercitationem tempore accusamus nisi?"
+          cardText="You get access to an unlimited number of searches, and get access to the complete 7 day forecast and report. You also get access to the favourites and board menu, as in the free tier."
         />
       </div>
     </section>

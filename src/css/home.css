@@ -130,8 +130,8 @@ button {
   justify-content: space-between;
   align-items: center;
   width: 90%;
-  margin-top: 10px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   height: 45px;
   border-radius: 10px;
   padding: 0 10px 0 10px;
@@ -142,7 +142,8 @@ button {
   cursor: pointer;
 }
 .homeNav .brand img {
-  width: 35px;
+  width: 25%;
+  border-radius: 10px;
 }
 .homeNav .brand h4 {
   font-size: 1.75rem;
@@ -206,6 +207,10 @@ button {
   width: 80%;
   display: flex;
   gap: 20px;
+  color: black;
+}
+.features .cards .card {
+  flex: 1;
 }
 
 .uses {
@@ -215,6 +220,7 @@ button {
   padding: 10% 20% 200px 20%;
   background-color: rgb(255, 255, 255);
   border-radius: 350px 0 0 0;
+  color: black;
 }
 
 .pricing {
@@ -224,11 +230,15 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: black;
 }
 .pricing .pricingCards {
   display: flex;
   width: 40%;
   gap: 60px;
+}
+.pricing .pricingCards .pricingCard {
+  flex: 1;
 }
 
 .footer {
@@ -290,6 +300,49 @@ button {
   font-size: 1.2rem;
 }
 
+.signupHero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: 50px 0 50px 0;
+}
+.signupHero .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0 40px 0;
+  gap: 10px;
+}
+.signupHero .text h2 {
+  font-size: 2rem;
+}
+.signupHero form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.signupHero form div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.signupHero form div input {
+  width: 75%;
+  height: 40px;
+  border-radius: 7.5px;
+  padding-left: 10px;
+  border: none;
+  font-size: 1.2rem;
+}
+.signupHero form button {
+  width: 50%;
+}
+
 .pricingChoice {
   padding: 5% 25% 10% 25%;
   display: flex;
@@ -297,6 +350,7 @@ button {
   align-items: center;
   background-color: white;
   border-radius: 350px 0 0 0;
+  color: black;
 }
 .pricingChoice .pricingCards {
   display: flex;

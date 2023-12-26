@@ -1,17 +1,12 @@
-function Card() {
+function Card({ title, content }) {
   return (
     <section className="card">
       <div className="cardBody">
         <div className="cardTitle">
-          <h4>Title</h4>
+          <h4>{title}</h4>
         </div>
         <div className="cardText">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
-            omnis voluptatibus et nulla placeat in rem blanditiis illum vel
-            adipisci facere incidunt tempora, vero ratione, aspernatur esse,
-            totam obcaecati vitae.
-          </p>
+          <p>{content}</p>
         </div>
       </div>
     </section>

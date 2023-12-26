@@ -9,9 +9,7 @@ function Uses() {
     <section className="uses">
       <HeaderText
         heading={"Use Cases"}
-        text={`Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum enim
-          quo repellat fuga cupiditate illum provident quae ab dicta saepe.
-          Nobis minus quam aspernatur earum voluptatum ea maxime unde saepe.`}
+        text={`Anyone can use Tide Chaser, if you need reports about the sea, we are here for you. Though if you're into surfing, wind sports or open water swimming, you'll need Tide Chaser.`}
       />
       <List elements={elements} img={surfImg} />
     </section>

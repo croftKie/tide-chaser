@@ -6,11 +6,7 @@ function SigninHero() {
       <div className="text">
         <img className="small-img" src={surfHero} alt="" />
         <h2>Sign In to Tide Chaser</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrup
-          doloremque vel dolorem praesentium ratione repellendus quidem
-          exercitationem esse totam! Ullam, soluta a?
-        </p>
+        <p>Welcome back! Login below to get started on your break search.</p>
       </div>
       <form action="">
         <div className="email">

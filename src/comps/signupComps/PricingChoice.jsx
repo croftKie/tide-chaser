@@ -7,10 +7,10 @@ function PricingChoice() {
         <img className="small-img" src={surfHero} alt="" />
         <h2>Select a Subscription Tier </h2>
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit
-          recusandae necessitatibus eos inventore maxime impedit, enim commodi
-          obcaecati adipisci, reprehenderit ducimus nesciunt explicabo incidunt
-          ipsam, nemo excepturi. Optio, minima quia.
+          Our goal with Tide Chaser is to create a highly accurate wave report,
+          and surfing companion that is also accesible and reasonably priced. We
+          do maintain our own servers and databases so have some running costs
+          that come with the application.
         </p>
       </div>
       <div className="pricingCards">
@@ -20,10 +20,9 @@ function PricingChoice() {
             <h3>Free Tier</h3>
           </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-            nesciunt voluptatibus dolorum at quasi ipsa minus voluptas, numquam
-            tempore. Quos sed praesentium omnis ut architecto laborum
-            exercitationem tempore accusamus nisi?
+            You get access to the Tide Chaser application, and can search for up
+            to 5 breaks per day to get the daily report for that break. Upgrade
+            to the subscription tier to get the 7 day report.
           </p>
           <h4>£0.00 Per Month</h4>
           <button className="button-alt-color">Select</button>
@@ -34,12 +33,11 @@ function PricingChoice() {
             <h3>Subscription Tier</h3>
           </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-            nesciunt voluptatibus dolorum at quasi ipsa minus voluptas, numquam
-            tempore. Quos sed praesentium omnis ut architecto laborum
-            exercitationem tempore accusamus nisi?
+            You get access to an unlimited number of searches, and get access to
+            the complete 7 day forecast and report. You also get access to the
+            favourites and board menu, as in the free tier.
           </p>
-          <h4>£2.99 Per Month</h4>
+          <h4>£3.99 Per Month</h4>
           <button className="button-alt-color">Select</button>
         </div>
       </div>

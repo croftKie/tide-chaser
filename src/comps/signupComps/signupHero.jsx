@@ -2,16 +2,11 @@ import surfHero from "../../assets/surf.png";
 
 function SignUpHero() {
   return (
-    <section className="signinHero">
+    <section className="signupHero">
       <div className="text">
         <img className="small-img" src={surfHero} alt="" />
         <h2>Sign up to Tide Chaser</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-          voluptas pariatur, earum expedita magni nihil veniam mollitia
-          doloremque vel dolorem praesentium ratione repellendus quidem
-          exercitationem esse totam! Ullam, soluta a?
-        </p>
+        <p>Welcome to Tide Chaser. Follow the instructions below to sign up.</p>
       </div>
       <form action="">
         <div className="first-name">
@@ -29,7 +24,7 @@ function SignUpHero() {
         <div className="confirm">
           <input placeholder="Confirm Password" type="password" />
         </div>
-        <button type="submit">Sign Up</button>
+        <button type="submit">Confirm and Select Subscription Tier</button>
       </form>
     </section>
   );

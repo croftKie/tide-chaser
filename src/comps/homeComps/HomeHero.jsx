@@ -1,6 +1,16 @@
+import { useRef } from "react";
 import surfHero from "../../assets/images/surf-hero.jpg";
 import { Link } from "react-router-dom";
+import {
+  diagonalMoveAndScaleAway,
+  scaleIn,
+  scaleOut,
+} from "../../utilities/animations";
 function HomeHero() {
+  const learnMoreButtonRef = useRef();
+  const subscribeButtonRef = useRef();
+  const imgRef = useRef();
+  const sqRef = useRef();
   return (
     <section className="hero">
       <div className="col text">
@@ -12,17 +22,35 @@ function HomeHero() {
           one.
         </p>
         <div className="buttons">
-          <Link to="/about">
+          <Link
+            ref={learnMoreButtonRef}
+            onMouseEnter={() => scaleOut(learnMoreButtonRef.current)}
+            onMouseLeave={() => scaleIn(learnMoreButtonRef.current)}
+            to="/about"
+          >
             <button>Learn More</button>
           </Link>
-          <Link to="/subscribe">
+          <Link
+            ref={subscribeButtonRef}
+            onMouseEnter={() => scaleOut(subscribeButtonRef.current)}
+            onMouseLeave={() => scaleIn(subscribeButtonRef.current)}
+            to="/subscribe"
+          >
             <button>Subscribe</button>
           </Link>
         </div>
       </div>
-      <div className="col hero-img">
-        <img src={surfHero} alt="" />
-        <div className="square"></div>
+      <div
+        onMouseEnter={() =>
+          diagonalMoveAndScaleAway(1, imgRef.current, sqRef.current)
+        }
+        onMouseLeave={() =>
+          diagonalMoveAndScaleAway(0, imgRef.current, sqRef.current)
+        }
+        className="col hero-img"
+      >
+        <img ref={imgRef} src={surfHero} alt="" />
+        <div ref={sqRef} className="square"></div>
       </div>
     </section>
   );
