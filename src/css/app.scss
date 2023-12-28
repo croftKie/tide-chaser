@@ -94,7 +94,11 @@ $font-style: "Nunito";
   box-sizing: border-box;
 }
 .tide-app {
-  background-color: rgb(73, 179, 195);
+  background-color: rgb(99, 207, 228);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
 }
 body {
   color: $secondary-color;
@@ -128,16 +132,19 @@ body {
 .upper {
   display: flex;
   justify-content: space-between;
-  padding: 2%;
+  padding: 0.5% 2% 0.5% 2%;
+  border-radius: 10px;
+  width: 95%;
   .logo {
     display: flex;
     align-items: center;
+    padding-left: 1%;
     img {
-      height: 25px;
+      height: 20px;
     }
     h1 {
       padding-left: 10px;
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       color: black;
     }
   }
@@ -145,8 +152,9 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
+    padding-right: 1%;
     img {
-      height: 30px;
+      height: 20px;
       cursor: pointer;
     }
   }
@@ -156,7 +164,10 @@ body {
   grid-template-rows: 1fr 0fr;
   justify-content: center;
   transition: grid-template-rows, 1s;
-  margin: 0 0 10px 0;
+  margin: 5px 0 10px 0;
+  // background-color: white;
+  border-radius: 10px;
+  padding: 1%;
   &.expanded {
     grid-template-rows: 1fr 4fr;
   }
@@ -171,15 +182,15 @@ body {
       display: flex;
       width: 100%;
       gap: 20px;
+      align-items: center;
       img {
-        height: 30px;
+        height: 20px;
         cursor: pointer;
-        filter: invert(100%);
       }
       input {
-        color: black;
+        color: rgb(0, 0, 0);
         width: 100%;
-        height: 30px;
+        height: 25px;
         font-family: $font-style;
         font-size: 0.8rem;
         font-weight: bold;
@@ -187,13 +198,11 @@ body {
         border: none;
         border-radius: 50px;
         padding-left: 10px;
-        box-shadow: inset 1px 1px 3px 1px rgba(33, 102, 159, 0.464);
       }
     }
     .down-arrow {
       width: 25px;
       cursor: pointer;
-      filter: invert(100%);
       &.rotated-arrow {
         transform: rotateZ(180deg);
       }
@@ -203,8 +212,7 @@ body {
     }
   }
   .map {
-    border-radius: 5px;
-    border: 5px solid white;
+    border-radius: 10px;
     width: 90vw;
     transition: height, 2s;
   }
@@ -212,6 +220,7 @@ body {
 .info {
   padding-left: 5%;
   font-size: 0.75rem;
+  width: 100%;
   span {
     text-decoration: underline;
   }
@@ -251,6 +260,7 @@ body {
     gap: 10px;
     .hourly {
       @include daily-hourly-template();
+
       .hour {
         @include day-hour-template();
         //   transform: translateY(400px);
@@ -264,8 +274,10 @@ body {
         box-shadow: 1px 1px 10px 1px rgba(33, 102, 159, 0.464);
       }
     }
+
     img {
       height: 30px;
+      cursor: pointer;
     }
   }
   .currentCondition {
@@ -381,11 +393,11 @@ body {
     .tableContainer {
       width: 400px;
       display: flex;
-      flex-wrap: nowrap;
-      flex-direction: column;
-      gap: 20px;
-      padding: 10px;
-      overflow-x: scroll;
+      // flex-wrap: nowrap;
+      // flex-direction: column;
+      // gap: 20px;
+      // padding: 10px;
+      // overflow-x: scroll;
       .row {
         display: flex;
         padding-bottom: 10px;
@@ -407,7 +419,7 @@ body {
           }
         }
         .item {
-          width: 200px;
+          // width: 200px;
           text-align: center;
           display: flex;
           align-items: center;
@@ -522,7 +534,7 @@ body {
     min-height: 100vh; // outer container
     gap: 10px;
     .upper {
-      padding: 1%;
+      padding: 0.4%;
     }
     .search {
       .search-bar {

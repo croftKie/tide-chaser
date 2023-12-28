@@ -6,7 +6,11 @@
 }
 
 .tide-app {
-  background-color: rgb(73, 179, 195);
+  background-color: rgb(99, 207, 228);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
 }
 
 body {
@@ -28,27 +32,31 @@ body.day-gradient {
 .upper {
   display: flex;
   justify-content: space-between;
-  padding: 2%;
+  padding: 0.5% 2% 0.5% 2%;
+  border-radius: 10px;
+  width: 95%;
 }
 .upper .logo {
   display: flex;
   align-items: center;
+  padding-left: 1%;
 }
 .upper .logo img {
-  height: 25px;
+  height: 20px;
 }
 .upper .logo h1 {
   padding-left: 10px;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   color: black;
 }
 .upper .links {
   display: flex;
   align-items: center;
   gap: 15px;
+  padding-right: 1%;
 }
 .upper .links img {
-  height: 30px;
+  height: 20px;
   cursor: pointer;
 }
 
@@ -57,7 +65,9 @@ body.day-gradient {
   grid-template-rows: 1fr 0fr;
   justify-content: center;
   transition: grid-template-rows, 1s;
-  margin: 0 0 10px 0;
+  margin: 5px 0 10px 0;
+  border-radius: 10px;
+  padding: 1%;
 }
 .search.expanded {
   grid-template-rows: 1fr 4fr;
@@ -74,16 +84,16 @@ body.day-gradient {
   display: flex;
   width: 100%;
   gap: 20px;
+  align-items: center;
 }
 .search .search-bar .bar img {
-  height: 30px;
+  height: 20px;
   cursor: pointer;
-  filter: invert(100%);
 }
 .search .search-bar .bar input {
-  color: black;
+  color: rgb(0, 0, 0);
   width: 100%;
-  height: 30px;
+  height: 25px;
   font-family: "Nunito";
   font-size: 0.8rem;
   font-weight: bold;
@@ -91,12 +101,10 @@ body.day-gradient {
   border: none;
   border-radius: 50px;
   padding-left: 10px;
-  box-shadow: inset 1px 1px 3px 1px rgba(33, 102, 159, 0.464);
 }
 .search .search-bar .down-arrow {
   width: 25px;
   cursor: pointer;
-  filter: invert(100%);
 }
 .search .search-bar .down-arrow.rotated-arrow {
   transform: rotateZ(180deg);
@@ -105,8 +113,7 @@ body.day-gradient {
   transform: scale(90%);
 }
 .search .map {
-  border-radius: 5px;
-  border: 5px solid white;
+  border-radius: 10px;
   width: 90vw;
   transition: height, 2s;
 }
@@ -114,6 +121,7 @@ body.day-gradient {
 .info {
   padding-left: 5%;
   font-size: 0.75rem;
+  width: 100%;
 }
 .info span {
   text-decoration: underline;
@@ -243,6 +251,7 @@ body.day-gradient {
 }
 .dashboard .hourly-container img {
   height: 30px;
+  cursor: pointer;
 }
 .dashboard .currentCondition {
   padding-left: 5%;
@@ -371,11 +380,6 @@ body.day-gradient {
 .dashboard .detailedForecast .tableContainer {
   width: 400px;
   display: flex;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  gap: 20px;
-  padding: 10px;
-  overflow-x: scroll;
 }
 .dashboard .detailedForecast .tableContainer .row {
   display: flex;
@@ -399,7 +403,6 @@ body.day-gradient {
   font-size: 0.9rem;
 }
 .dashboard .detailedForecast .tableContainer .row .item {
-  width: 200px;
   text-align: center;
   display: flex;
   align-items: center;
@@ -506,7 +509,7 @@ body.day-gradient {
     gap: 10px;
   }
   body .upper {
-    padding: 1%;
+    padding: 0.4%;
   }
   body .search .search-bar div img {
     height: 25px;

@@ -16,7 +16,7 @@ function DetailedForecast({ data }) {
           <div className="item">
             <h4>Cloud</h4>
           </div>
-          <div className="item">
+          {/* <div className="item">
             <h4>DATA ITEM</h4>
           </div>
           <div className="item">
@@ -30,7 +30,7 @@ function DetailedForecast({ data }) {
           </div>
           <div className="item">
             <h4>DATA ITEM</h4>
-          </div>
+          </div> */}
         </div>
         {data &&
           data.map((day) => {
@@ -51,7 +51,7 @@ function DetailedForecast({ data }) {
                 <div className="item">
                   <h4>{day.cloud}%</h4>
                 </div>
-                <div className="item">
+                {/* <div className="item">
                   <h4>DATA ITEM</h4>
                 </div>
                 <div className="item">
@@ -65,7 +65,7 @@ function DetailedForecast({ data }) {
                 </div>
                 <div className="item">
                   <h4>DATA ITEM</h4>
-                </div>
+                </div> */}
               </div>
             );
           })}

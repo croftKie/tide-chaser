@@ -16,12 +16,11 @@ export const scaleIn = (element) => {
 };
 
 export const diagonalMoveAndScaleAway = (mode, elementOne, elementTwo) => {
-  if (mode === 0) {
-    const tl = gsap.timeline();
-    tl.to(elementOne, { yPercent: 10, xPercent: 10, scale: 1.1 });
-    tl.to(elementTwo, { yPercent: -10, xPercent: -10, scale: 1.1 });
-  }
-
-  gsap.to(elementOne, { yPercent: -10, xPercent: -10, scale: 1.1 });
-  gsap.to(elementTwo, { yPercent: 10, xPercent: 10, scale: 1.1 });
+  // if (mode === 0) {
+  //   const tl = gsap.timeline();
+  //   tl.to(elementOne, { yPercent: 10, xPercent: 10, scale: 1.1 });
+  //   tl.to(elementTwo, { yPercent: -10, xPercent: -10, scale: 1.1 });
+  // }
+  // gsap.to(elementOne, { yPercent: -10, xPercent: -10, scale: 1.1 });
+  // gsap.to(elementTwo, { yPercent: 10, xPercent: 10, scale: 1.1 });
 };

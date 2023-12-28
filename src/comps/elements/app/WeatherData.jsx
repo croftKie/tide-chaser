@@ -1,4 +1,12 @@
+import tempImg from "../../../assets/temperature.png";
+import waterTempImg from "../../../assets/water-temperature.png";
+import cloudCoverImg from "../../../assets/cloud-cover.png";
+import precipImg from "../../../assets/precipitation.png";
+import humidImg from "../../../assets/humidity.png";
+import visibilityImg from "../../../assets/visibility.png";
+
 function WeatherData({ data }) {
+  console.log(data);
   return (
     <div className="weather-data">
       <div className="current-weather">
@@ -6,36 +14,38 @@ function WeatherData({ data }) {
           <div>
             <img
               className="air-temp-icon ${airTempIcon}"
-              src="./public/assets/temperature.png"
+              src={tempImg}
               alt=""
             />
-            <p className="air-temperature">TEMP°C</p>
+            <p className="air-temperature">
+              {Math.round(data.airTemperature)}°C
+            </p>
           </div>
           <div>
             <img
               className="water-temp-icon ${waterTempIcon}"
-              src="./public/assets/water-temperature.png"
+              src={waterTempImg}
               alt=""
             />
-            <p className="water-temp">WATER TEMP°C</p>
+            <p className="water-temp">{Math.round(data.waterTemperature)}°C</p>
           </div>
           <div>
-            <img src="./public/assets/cloud-cover.png" alt="" />
-            <p className="cloud-cover">CLOUD%</p>
+            <img src={cloudCoverImg} alt="" />
+            <p className="cloud-cover">{data.cloudCover}%</p>
           </div>
         </div>
         <div className="other-data">
           <div>
-            <img src="./public/assets/precipitation.png" alt="" />
-            <p className="precipitation">PRECIPmm/h</p>
+            <img src={precipImg} alt="" />
+            <p className="precipitation">{data.precipitation}mm/h</p>
           </div>
           <div>
-            <img src="./public/assets/humidity.png" alt="" />
-            <p className="humidity">HUMIDITY%</p>
+            <img src={humidImg} alt="" />
+            <p className="humidity">{Math.round(data.humidity)}%</p>
           </div>
           <div>
-            <img src="./public/assets/visibility.png" alt="" />
-            <p className="visibility">VISIB km</p>
+            <img src={visibilityImg} alt="" />
+            <p className="visibility">{data.visibility}km</p>
           </div>
         </div>
       </div>

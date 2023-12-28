@@ -132,17 +132,20 @@ button {
   width: 90%;
   margin-top: 20px;
   margin-bottom: 20px;
-  height: 45px;
+  height: 50px;
   border-radius: 10px;
   padding: 0 10px 0 10px;
+  background-color: white;
 }
 .homeNav .brand {
   display: flex;
   align-items: center;
   cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 .homeNav .brand img {
-  width: 25%;
+  width: 15%;
   border-radius: 10px;
 }
 .homeNav .brand h4 {
@@ -175,25 +178,29 @@ button {
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+  margin-bottom: 0;
 }
 .hero .col img {
-  width: 60%;
+  width: 85%;
   border-radius: 10px;
   box-shadow: 20px 20px 0 0 rgb(255, 255, 255);
 }
 .hero .col h2 {
-  margin-bottom: 30px;
   font-size: 2.8rem;
-  width: 75%;
+  text-align: left;
 }
 .hero .col p {
-  width: 80%;
+  text-align: left;
+  width: 100%;
 }
 .hero .col .buttons {
   margin-top: 30px;
   display: flex;
   gap: 30px;
+}
+.hero .hero-img {
+  align-items: center;
 }
 
 .features {

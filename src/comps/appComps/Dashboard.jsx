@@ -4,9 +4,12 @@ import SurfData from "../elements/app/SurfData";
 import WeatherData from "../elements/app/WeatherData";
 import { selectData, setData } from "../../redux/surfDataSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { fetchData } from "../../utilities/fetchData";
 import info from "../../assets/info.png";
+import leftImg from "../../assets/arrow-left.png";
+import rightImg from "../../assets/arrow-right.png";
+
 import DetailedForecast from "../elements/app/DetailedForecast";
 
 function Dashboard() {
@@ -20,41 +23,49 @@ function Dashboard() {
     const data = await fetchData();
     dispatch(setData(data));
   };
-  useEffect(() => {
-    handleGetDataOnLoad();
-  }, []);
-
   const handleDailyClick = (e) => {
     Array.from(dailyContainerRef.current.children).forEach((child) => {
       child.classList.remove("clicked");
     });
     setClicked(e);
   };
+  useEffect(() => {
+    handleGetDataOnLoad();
+  }, []);
 
-  console.log(dataSelector);
+  console.log(selectedDay, selectedHour);
   return (
     <section className="dashboard">
       <div ref={dailyContainerRef} className="daily">
         {dataSelector.daily &&
-          dataSelector.daily.map((item, i) => {
+          dataSelector.daily.map((item, index) => {
             return (
               <DailyCard
-                key={i}
+                key={index}
                 data={item}
                 handleDailyClick={handleDailyClick}
+                setSelectedDay={setSelectedDay}
+                id={index}
               />
             );
           })}
       </div>
       <div className="hourly-container">
-        <img src={info} alt="" />
+        <img src={leftImg} alt="" />
         <div className="hourly">
           {dataSelector.hourly &&
-            dataSelector.hourly[selectedDay].data.map((item, i) => {
-              return <HourlyCard key={i} data={item} />;
+            dataSelector.hourly[selectedDay].data.map((item, index) => {
+              return (
+                <HourlyCard
+                  key={index}
+                  data={item}
+                  setSelectedHour={setSelectedHour}
+                  id={index}
+                />
+              );
             })}
         </div>
-        <img src={info} alt="" />
+        <img src={rightImg} alt="" />
       </div>
       <h4 className="currentCondition">Current Conditions</h4>
       <SurfData

@@ -9,7 +9,7 @@ function HomeNav() {
     <>
       <nav className="homeNav">
         <Link className="brand" to="/">
-          <img src={logo} alt="" />
+          <h4>Tide Chaser</h4>
         </Link>
         <div className="links">
           <Link to="/about">
@@ -22,7 +22,7 @@ function HomeNav() {
             ref={subscribeButtonRef}
             onMouseEnter={() => scaleOut(subscribeButtonRef.current)}
             onMouseLeave={() => scaleIn(subscribeButtonRef.current)}
-            className="button"
+            className="button button-alt-color"
             to="/subscribe"
           >
             <a href="">Subscribe</a>
