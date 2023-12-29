@@ -7,8 +7,9 @@ import {
 } from "../../../utilities/fetchData";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentCoords, selectData } from "../../../redux/surfDataSlice";
-
+import { useNavigate } from "react-router-dom";
 function MenuEl() {
+  const navigate = useNavigate();
   const [favourites, setFavourites] = useState([]);
   const [boards, setBoards] = useState([]);
   const [myBoard, setMyBoard] = useState({
@@ -41,7 +42,14 @@ function MenuEl() {
   }, []);
   return (
     <div className="menu-container">
-      <h2>Hi, First Name</h2>
+      <h2
+        onClick={() => {
+          sessionStorage.clear();
+          navigate("/");
+        }}
+      >
+        Hi, First Name
+      </h2>
       <div className="favourites">
         <div className="add">
           <div className="add-input">

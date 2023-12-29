@@ -53,3 +53,12 @@ export const postMyFavourite = async (coords, name) => {
   );
   return data;
 };
+
+export const postSignIn = async (values) => {
+  const { data } = await axios.post(
+    `https://tider-chaser-server.onrender.com/users/login`,
+    { email: values[0], password: values[1] }
+  );
+  console.log(data);
+  return data;
+};
