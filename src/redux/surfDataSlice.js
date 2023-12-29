@@ -1,11 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-  data: [
-    {
-      daily: [],
-      hourly: [],
-    },
-  ],
+  data: [],
   currentCoords: [],
   infoBar: { name: "El Sardinero", state: "Santander" },
 };
@@ -30,5 +25,6 @@ export const { setData, setCurrentCoords, setInfoBarData } =
 
 export const selectData = (state) => state.surf.data;
 export const selectInfoBarData = (state) => state.surf.infoBar;
+export const selectCurrentCoords = (state) => state.surf.currentCoords;
 
 export default surfDataSlice.reducer;

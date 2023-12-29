@@ -6,7 +6,6 @@ import humidImg from "../../../assets/humidity.png";
 import visibilityImg from "../../../assets/visibility.png";
 
 function WeatherData({ data }) {
-  console.log(data);
   return (
     <div className="weather-data">
       <div className="current-weather">

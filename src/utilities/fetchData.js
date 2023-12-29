@@ -3,18 +3,9 @@ import axios from "axios";
 export const fetchData = async (lng, lat) => {
   try {
     const { data } = await axios.get(
-      `https://tider-chaser-server.onrender.com`
+      `https://tider-chaser-server.onrender.com?lng=${lng}&lat=${lat}`
     );
     return data;
-    // let mode = 0;
-    // // if it is the first load by user, run map and menu initialisation
-    // if (mode === 0) {
-    //   mapScript();
-    //   // initMenu();
-    //   mode = 1;
-    // }
-    // popup(data.daily, data.hourly);
-    // dataManager(data.daily, data.hourly);
   } catch (err) {
     // toast("Surf data not available, try again later");
   }
@@ -23,6 +14,42 @@ export const fetchData = async (lng, lat) => {
 export const coordsFromPlaceName = async (value) => {
   const { data } = await axios.get(
     `https://api.openweathermap.org/geo/1.0/direct?q=${value}&appid=35d2edfe3900c67fdd86eea343199c65`
+  );
+  return data;
+};
+
+export const getFavourites = async () => {
+  const user_id = localStorage.getItem("user_id");
+
+  const { data } = await axios.get(
+    `https://tider-chaser-server.onrender.com/favourites?user_id=${user_id}`
+  );
+  return data;
+};
+
+export const getBoards = async () => {
+  const { data } = await axios.get(
+    `https://tider-chaser-server.onrender.com/board`
+  );
+  return data;
+};
+
+export const postMyBoard = async (board_id) => {
+  const user_id = localStorage.getItem("user_id");
+
+  const { data } = await axios.post(
+    `https://tider-chaser-server.onrender.com/board`,
+    { user_id: user_id, board_id: board_id }
+  );
+  return data;
+};
+
+export const postMyFavourite = async (coords, name) => {
+  const user_id = localStorage.getItem("user_id");
+
+  const { data } = await axios.post(
+    `https://tider-chaser-server.onrender.com/favourites`,
+    { user_id: user_id, coords: coords, name: name }
   );
   return data;
 };

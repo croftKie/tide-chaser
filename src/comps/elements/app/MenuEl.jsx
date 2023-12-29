@@ -1,23 +1,74 @@
+import { useEffect, useRef, useState } from "react";
+import {
+  getFavourites,
+  getBoards,
+  postMyBoard,
+  postMyFavourite,
+} from "../../../utilities/fetchData";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCurrentCoords, selectData } from "../../../redux/surfDataSlice";
+
 function MenuEl() {
+  const [favourites, setFavourites] = useState([]);
+  const [boards, setBoards] = useState([]);
+  const [myBoard, setMyBoard] = useState({
+    board_length: "4'0",
+    board_type: "mini mini",
+  });
+  const currentCoords = useSelector(selectCurrentCoords);
+  const inputRef = useRef();
+
+  const handleGetFavourites = async () => {
+    const data = await getFavourites();
+    setFavourites(data.content);
+  };
+  const handleGetBoards = async () => {
+    const data = await getBoards();
+    setBoards(data.content);
+  };
+  const setBoard = async (board) => {
+    const id = board._id;
+    setMyBoard({ board_length: board["length"], board_type: board["type"] });
+    await postMyBoard(id);
+  };
+  const setFavourite = async (name, currentCoords) => {
+    await postMyFavourite(currentCoords, name);
+  };
+
+  useEffect(() => {
+    handleGetFavourites();
+    handleGetBoards();
+  }, []);
   return (
     <div className="menu-container">
       <h2>Hi, First Name</h2>
       <div className="favourites">
         <div className="add">
           <div className="add-input">
-            <input placeholder="Save Current Report" type="text" />
-            <button className="button-alt-color">Save</button>
+            <input
+              ref={inputRef}
+              placeholder="Save Current Report"
+              type="text"
+            />
+            <button
+              onClick={() =>
+                setFavourite(inputRef.current.value, currentCoords)
+              }
+              className="button-alt-color"
+            >
+              Save
+            </button>
           </div>
         </div>
         <div className="items">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 2, 5].map((i) => {
+          {favourites.map((i) => {
             return (
               <div className="fav">
-                <p>BREAK NAME</p>
-                <p>DATE ADDED</p>
+                <p>{i.name}</p>
+                <p>Added: {new Date(i.updated).toLocaleString()}</p>
                 <div className="row">
-                  <p>D</p>
-                  <p>O</p>
+                  <p>lat: {i.coords && i.coords[0]}</p>
+                  <p>Lon: {i.coords && i.coords[1]}</p>
                 </div>
               </div>
             );
@@ -32,19 +83,23 @@ function MenuEl() {
             a "green" score in the wave report.
           </p>
           <div className="selector">
-            <select name="" id="">
-              <option value="">5</option>
-              <option value="">6</option>
-              <option value="">7</option>
-              <option value="">8</option>
-              <option value="">9</option>
+            <select
+              onChange={(e) => {
+                setBoard(boards[e.target.selectedIndex]);
+              }}
+              name=""
+              id=""
+            >
+              {boards.map((i) => {
+                return <option value={i["_id"]}>{i["length"]}</option>;
+              })}
             </select>
-            <button className="button-alt-color">Save</button>
           </div>
         </div>
         <div className="col view">
-          <h4>Your Board is 10ft</h4>
-          <h1>IMG</h1>
+          <h2>
+            You ride a {myBoard.board_length}, {myBoard.board_type}
+          </h2>
         </div>
       </div>
     </div>

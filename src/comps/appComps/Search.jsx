@@ -2,11 +2,11 @@ import searchGlass from "../../assets/search.svg";
 import downArrowImg from "../../assets/down-arrow.png";
 import { useRef } from "react";
 import mapboxgl from "mapbox-gl";
-import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setCurrentCoords, setInfoBarData } from "../../redux/surfDataSlice";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { fetchData, coordsFromPlaceName } from "../../utilities/fetchData";
+import { setData } from "../../redux/surfDataSlice";
 
 function Search() {
   const searchPlace = useRef();
@@ -72,7 +72,7 @@ function Search() {
         center: [data[0].lon, data[0].lat],
         zoom: 9,
       });
-      map.current.on("click", (e) => {
+      map.current.on("click", async (e) => {
         // setNotifications(data[0].name, data[0].state, data[0].lon, data[0].lat); //sets infobar data
         dispatch(
           setInfoBarData({
@@ -83,13 +83,9 @@ function Search() {
 
         const { lng, lat } = e.lngLat;
         dispatch(setCurrentCoords([lng, lat]));
-        console.log(lng, lat);
+        const newSurfData = await fetchData(lng, lat);
+        dispatch(setData(newSurfData));
 
-        // hideAnims(".day", -400); //hides day cards
-        // hideAnims(".hour", 400); // hides hour cards
-        // breakdownAnimHide(); // hides breakdown cards
-
-        fetchData(lng, lat);
         new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map.current);
       });
     }

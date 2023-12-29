@@ -4,7 +4,7 @@ import SurfData from "../elements/app/SurfData";
 import WeatherData from "../elements/app/WeatherData";
 import { selectData, setData } from "../../redux/surfDataSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState, useRef } from "react";
+import { useLayoutEffect, useState, useRef } from "react";
 import { fetchData } from "../../utilities/fetchData";
 import info from "../../assets/info.png";
 import leftImg from "../../assets/arrow-left.png";
@@ -29,61 +29,63 @@ function Dashboard() {
     });
     setClicked(e);
   };
-  useEffect(() => {
+  useLayoutEffect(() => {
     handleGetDataOnLoad();
   }, []);
-
-  console.log(selectedDay, selectedHour);
-  return (
-    <section className="dashboard">
-      <div ref={dailyContainerRef} className="daily">
-        {dataSelector.daily &&
-          dataSelector.daily.map((item, index) => {
-            return (
-              <DailyCard
-                key={index}
-                data={item}
-                handleDailyClick={handleDailyClick}
-                setSelectedDay={setSelectedDay}
-                id={index}
-              />
-            );
-          })}
-      </div>
-      <div className="hourly-container">
-        <img src={leftImg} alt="" />
-        <div className="hourly">
-          {dataSelector.hourly &&
-            dataSelector.hourly[selectedDay].data.map((item, index) => {
+  if (dataSelector.length !== 0) {
+    return (
+      <section className="dashboard">
+        <div ref={dailyContainerRef} className="daily">
+          {dataSelector.daily &&
+            dataSelector.daily.map((item, index) => {
               return (
-                <HourlyCard
+                <DailyCard
                   key={index}
                   data={item}
-                  setSelectedHour={setSelectedHour}
+                  handleDailyClick={handleDailyClick}
+                  setSelectedDay={setSelectedDay}
                   id={index}
                 />
               );
             })}
         </div>
-        <img src={rightImg} alt="" />
-      </div>
-      <h4 className="currentCondition">Current Conditions</h4>
-      <SurfData
-        data={
-          dataSelector.hourly &&
-          dataSelector.hourly[selectedDay].data[selectedHour]
-        }
-      />
-      <WeatherData
-        data={
-          dataSelector.hourly &&
-          dataSelector.hourly[selectedDay].data[selectedHour]
-        }
-      />
-      <h4 className="currentCondition">Detailed Forecast</h4>
-      <DetailedForecast data={dataSelector.daily && dataSelector.daily} />
-    </section>
-  );
+        <div className="hourly-container">
+          <img src={leftImg} alt="" />
+          <div className="hourly">
+            {dataSelector.hourly &&
+              dataSelector.hourly[selectedDay].data.map((item, index) => {
+                return (
+                  <HourlyCard
+                    key={index}
+                    data={item}
+                    setSelectedHour={setSelectedHour}
+                    id={index}
+                  />
+                );
+              })}
+          </div>
+          <img src={rightImg} alt="" />
+        </div>
+        <h4 className="currentCondition">Current Conditions</h4>
+        <SurfData
+          data={
+            dataSelector.hourly &&
+            dataSelector.hourly[selectedDay].data[selectedHour]
+          }
+        />
+        <WeatherData
+          data={
+            dataSelector.hourly &&
+            dataSelector.hourly[selectedDay].data[selectedHour]
+          }
+        />
+        <h4 className="currentCondition">Detailed Forecast</h4>
+        <DetailedForecast data={dataSelector.daily && dataSelector.daily} />
+      </section>
+    );
+  } else {
+    return <div className="loading">Loading data...</div>;
+  }
 }
 
 export default Dashboard;
