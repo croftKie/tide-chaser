@@ -22,7 +22,7 @@ function PricingChoice({ setStep, setSubscriptionMode, handleSignUp }) {
           </p>
           <h4>£0.00 Per Month</h4>
           <button
-            onClick={() => setSubscription(1)}
+            onClick={() => setSubscriptionMode(1)}
             className="button-alt-color"
           >
             Select
@@ -40,7 +40,7 @@ function PricingChoice({ setStep, setSubscriptionMode, handleSignUp }) {
           </p>
           <h4>£3.99 Per Month</h4>
           <button
-            onClick={() => setSubscription(2)}
+            onClick={() => setSubscriptionMode(2)}
             className="button-alt-color"
           >
             Select
@@ -57,9 +57,7 @@ function PricingChoice({ setStep, setSubscriptionMode, handleSignUp }) {
           {"<<"} Go Back
         </button>
         <button
-          onClick={(e) => {
-            e.preventDefault();
-            setSubscriptionMode(subscription);
+          onClick={() => {
             handleSignUp();
           }}
         >

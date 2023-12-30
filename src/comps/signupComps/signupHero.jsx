@@ -26,9 +26,14 @@ function SignUpHero({ setStep, setFormData }) {
         <p>Welcome to Tide Chaser. Follow the instructions below to sign up.</p>
       </div>
       <form ref={formRef} action="">
-        <input placeholder="Kieran" type="text" name="first_name" id="" />
-        <input placeholder="Croft" type="text" name="last_name" id="" />
-        <input placeholder="email@email.com" type="email" name="email" id="" />
+        <input placeholder="Kieran" type="text" name="first_name" id="fn" />
+        <input placeholder="Croft" type="text" name="last_name" id="ln" />
+        <input
+          placeholder="email@email.com"
+          type="email"
+          name="email"
+          id="em"
+        />
         <input placeholder="Password" type="password" name="password" />
         <input placeholder="Confirm Password" type="password" name="confirm" />
         <button
