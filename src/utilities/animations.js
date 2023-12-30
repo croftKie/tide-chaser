@@ -24,3 +24,13 @@ export const diagonalMoveAndScaleAway = (mode, elementOne, elementTwo) => {
   // gsap.to(elementOne, { yPercent: -10, xPercent: -10, scale: 1.1 });
   // gsap.to(elementTwo, { yPercent: 10, xPercent: 10, scale: 1.1 });
 };
+
+export const moveCardOutRight = (el, func) => {
+  const tl = gsap.timeline();
+  tl.to(el, { x: 1500, duration: 0.5, onComplete: func });
+};
+
+export const moveCardOutLeft = (el, func) => {
+  const tl = gsap.timeline();
+  tl.to(el, { x: -1500, duration: 0.5, onComplete: func });
+};

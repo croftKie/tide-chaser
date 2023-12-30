@@ -9,12 +9,12 @@ function HomeNav() {
     <>
       <nav className="homeNav">
         <Link className="brand" to="/">
-          <h4>Tide Chaser</h4>
+          <h3>Tide Chaser</h3>
         </Link>
         <div className="links">
-          <Link to="/about">
+          {/* <Link to="/about">
             <a href="">About</a>
-          </Link>
+          </Link> */}
           <Link to="/sign-in">
             <a href="">Sign-In</a>
           </Link>
@@ -25,7 +25,7 @@ function HomeNav() {
             className="button button-alt-color"
             to="/subscribe"
           >
-            <a href="">Subscribe</a>
+            Subscribe
           </Link>
         </div>
       </nav>

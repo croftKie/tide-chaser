@@ -9,8 +9,7 @@ const Signin = () => {
       <HomeNav />
       <SigninHero />
       <Features />
-      <h1 className="faq"></h1>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

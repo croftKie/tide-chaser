@@ -1,30 +1,45 @@
 import surfHero from "../../assets/surf.png";
+import { moveCardOutRight } from "../../utilities/animations";
+import { useRef } from "react";
+function SignUpHero({ setStep, setFormData }) {
+  const sectionRef = useRef();
+  const formRef = useRef();
+  const handleSubmit = () => {
+    const formData = {};
+    const formArr = Array.from(formRef.current.children);
 
-function SignUpHero() {
+    formArr.forEach((item, index) => {
+      if (index < formArr.length) {
+        formData[item.name] = item.value;
+      }
+    });
+
+    setFormData(formData);
+    moveCardOutRight(sectionRef.current, () => setStep(0));
+  };
+
   return (
-    <section className="signupHero">
+    <section ref={sectionRef} className="signupHero">
       <div className="text">
         <img className="small-img" src={surfHero} alt="" />
         <h2>Sign up to Tide Chaser</h2>
         <p>Welcome to Tide Chaser. Follow the instructions below to sign up.</p>
       </div>
-      <form action="">
-        <div className="first-name">
-          <input placeholder="Kieran" type="text" name="" id="" />
-        </div>
-        <div className="last-name">
-          <input placeholder="Croft" type="text" name="" id="" />
-        </div>
-        <div className="email">
-          <input placeholder="email@email.com" type="email" name="" id="" />
-        </div>
-        <div className="password">
-          <input placeholder="Password" type="password" />
-        </div>
-        <div className="confirm">
-          <input placeholder="Confirm Password" type="password" />
-        </div>
-        <button type="submit">Confirm and Select Subscription Tier</button>
+      <form ref={formRef} action="">
+        <input placeholder="Kieran" type="text" name="first_name" id="" />
+        <input placeholder="Croft" type="text" name="last_name" id="" />
+        <input placeholder="email@email.com" type="email" name="email" id="" />
+        <input placeholder="Password" type="password" name="password" />
+        <input placeholder="Confirm Password" type="password" name="confirm" />
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            handleSubmit();
+          }}
+          type="submit"
+        >
+          Confirm and Select Subscription Tier {">>"}
+        </button>
       </form>
     </section>
   );

@@ -1,22 +1,18 @@
 import surfHero from "../../assets/surf.png";
+import freeImg from "../../assets/free.png";
+import subImg from "../../assets/subscription.png";
+import { moveCardOutLeft } from "../../utilities/animations";
+import { useRef, useState } from "react";
+function PricingChoice({ setStep, setSubscriptionMode, handleSignUp }) {
+  const [subscription, setSubscription] = useState(null);
+  const sectionRef = useRef();
 
-function PricingChoice() {
   return (
-    <section className="pricingChoice">
-      <div className="text">
-        <img className="small-img" src={surfHero} alt="" />
-        <h2>Select a Subscription Tier </h2>
-        <p>
-          Our goal with Tide Chaser is to create a highly accurate wave report,
-          and surfing companion that is also accesible and reasonably priced. We
-          do maintain our own servers and databases so have some running costs
-          that come with the application.
-        </p>
-      </div>
+    <section ref={sectionRef} className="pricingChoice">
       <div className="pricingCards">
         <div className="pricingCard">
           <div className="header-text">
-            <img className="small-img" src={surfHero} alt="" />
+            <img className="small-img" src={freeImg} alt="" />
             <h3>Free Tier</h3>
           </div>
           <p>
@@ -25,11 +21,16 @@ function PricingChoice() {
             to the subscription tier to get the 7 day report.
           </p>
           <h4>£0.00 Per Month</h4>
-          <button className="button-alt-color">Select</button>
+          <button
+            onClick={() => setSubscription(1)}
+            className="button-alt-color"
+          >
+            Select
+          </button>
         </div>
         <div className="pricingCard">
           <div className="header-text">
-            <img className="small-img" src={surfHero} alt="" />
+            <img className="small-img" src={subImg} alt="" />
             <h3>Subscription Tier</h3>
           </div>
           <p>
@@ -38,8 +39,32 @@ function PricingChoice() {
             favourites and board menu, as in the free tier.
           </p>
           <h4>£3.99 Per Month</h4>
-          <button className="button-alt-color">Select</button>
+          <button
+            onClick={() => setSubscription(2)}
+            className="button-alt-color"
+          >
+            Select
+          </button>
         </div>
+      </div>
+      <div style={{ display: "flex", gap: "30px" }}>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            moveCardOutLeft(sectionRef.current, () => setStep(1));
+          }}
+        >
+          {"<<"} Go Back
+        </button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            setSubscriptionMode(subscription);
+            handleSignUp();
+          }}
+        >
+          Complete Subscription
+        </button>
       </div>
     </section>
   );

@@ -22,7 +22,7 @@ function List({ elements, img }) {
       {data.map((el) => {
         return (
           <div className="item">
-            <h3>{el.title}</h3>
+            <h4>{el.title}</h4>
             <p>{el.content}</p>
           </div>
         );

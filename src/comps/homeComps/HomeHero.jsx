@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import surfHero from "../../assets/images/surf-hero.jpg";
+import surfHero from "../../assets/hero-board.png";
 import { Link } from "react-router-dom";
 import {
   diagonalMoveAndScaleAway,
@@ -25,19 +25,9 @@ function HomeHero() {
         <img ref={imgRef} src={surfHero} alt="" />
       </div>
       <div className="col text">
-        <p>Want to hit the waves?</p>
-        <h2 className="header-text">Find the best breaks with Tide Chaser.</h2>
-        <p>Reports - Forecast - Maps - Favourites</p>
-        <div className="buttons">
-          <Link
-            ref={subscribeButtonRef}
-            onMouseEnter={() => scaleOut(subscribeButtonRef.current)}
-            onMouseLeave={() => scaleIn(subscribeButtonRef.current)}
-            to="/subscribe"
-          >
-            <button>Subscribe</button>
-          </Link>
-        </div>
+        <h4>Want to hit the waves?</h4>
+        <h1 className="header-text">Find the best breaks with Tide Chaser</h1>
+        <h4>Reports - Forecast - Maps - Favourites</h4>
       </div>
     </section>
   );

@@ -1,9 +1,50 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Marvel:wght@400;700&family=Nunito:wght@300;400;500;700&family=Sarala:wght@400;700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Quicksand";
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Nunito";
+}
+
+h1 {
+  font-size: 3.7vw;
+}
+
+h2 {
+  font-size: 3.5vw;
+}
+
+h3 {
+  font-size: 2vw;
+}
+
+h4,
+h5,
+h6 {
+  font-family: "Marvel";
+}
+
+h4 {
+  font-size: 2.2vw;
+}
+
+h5 {
+  font-size: 2vw;
+}
+
+h6 {
+  font-size: 1.7vw;
+}
+
+p,
+a {
+  font-family: "Sarala";
+  font-size: 1vw;
 }
 
 .small-img {
@@ -11,25 +52,37 @@
 }
 
 .card {
-  background-color: white;
-  border-radius: 25px;
+  background-color: #d1f5ff;
+  border-radius: 2vw;
   overflow: hidden;
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 15px;
+}
+.card .cardImage {
+  flex: 2;
+  background-color: #ecdcaa;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card .cardImage img {
+  width: 45%;
 }
 .card .cardBody {
+  flex: 3;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  padding-right: 40px;
 }
 .card .cardBody .cardTitle {
-  padding: 2.5% 5% 2.5% 10%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  padding-bottom: 5%;
 }
 .card .cardBody .cardTitle h4 {
   font-size: 2rem;
-}
-.card .cardBody .cardText {
-  padding: 10px;
 }
 .card .cardBody .cardLink {
   padding: 10px;
@@ -42,21 +95,20 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 8vh;
 }
 .list .item {
-  padding-bottom: 10px;
+  padding-bottom: 1vh;
   border-bottom: 3px solid rgb(99, 207, 228);
 }
 .list .item h3 {
-  font-size: 2rem;
-  margin-bottom: 5px;
+  margin-bottom: 1vh;
 }
 
 .button,
 button {
-  height: 40px;
-  width: 120px;
+  height: 5vh;
+  width: 8.5vw;
   background-color: rgb(247, 247, 247);
   border-radius: 5px;
   outline: none;
@@ -65,10 +117,11 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .button-alt-color {
-  background-color: rgb(99, 207, 228);
+  background-color: #ecdcaa;
 }
 
 .text {
@@ -77,15 +130,17 @@ button {
   align-items: center;
   text-align: center;
   gap: 2px;
-  margin-bottom: 40px;
+  margin-bottom: 5vh;
 }
 .text h3 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
+  margin-bottom: 2vh;
 }
 .text p {
-  width: 50%;
-  font-size: 1.2rem;
+  width: 60%;
+}
+.text button {
+  margin-top: 3vh;
+  cursor: pointer;
 }
 
 .pricingCard {
@@ -93,23 +148,21 @@ button {
   flex-direction: column;
   align-items: center;
   text-align: justify;
-  border: 2px solid rgb(99, 207, 228);
   border-radius: 10px;
-  gap: 15px;
+  gap: 3vh;
   padding: 20px;
+  background-color: white;
 }
 .pricingCard .header-text {
   display: flex;
   flex-direction: column;
   align-items: center;
   color: black;
-  background-color: rgb(99, 207, 228);
+  background-color: #ecdcaa;
   width: 100%;
   border-radius: 10px;
   padding: 5px;
-}
-.pricingCard .header-text img {
-  filter: invert(100%);
+  gap: 10px;
 }
 
 .bg {
@@ -129,13 +182,12 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 95%;
   margin-top: 20px;
   margin-bottom: 20px;
-  height: 50px;
+  height: 4vh;
   border-radius: 10px;
   padding: 0 10px 0 10px;
-  background-color: white;
 }
 .homeNav .brand {
   display: flex;
@@ -148,9 +200,6 @@ button {
   width: 15%;
   border-radius: 10px;
 }
-.homeNav .brand h4 {
-  font-size: 1.75rem;
-}
 .homeNav .links {
   display: flex;
   gap: 30px;
@@ -159,7 +208,6 @@ button {
 .homeNav .links a {
   text-decoration: none;
   color: black;
-  font-size: 1.2rem;
 }
 .homeNav .links a:hover {
   text-decoration: underline;
@@ -169,10 +217,11 @@ button {
 }
 
 .hero {
-  height: 400px;
+  height: 55vh;
   display: flex;
   width: 80%;
   margin: 50px 0 100px 0;
+  gap: 10px;
 }
 .hero .col {
   flex: 1;
@@ -180,17 +229,17 @@ button {
   justify-content: center;
   align-items: start;
   margin-bottom: 0;
+  gap: 20px;
+  color: rgb(41, 41, 41);
 }
 .hero .col img {
-  width: 85%;
-  border-radius: 10px;
-  box-shadow: 20px 20px 0 0 rgb(255, 255, 255);
+  width: 100%;
 }
-.hero .col h2 {
-  font-size: 2.8rem;
+.hero .col h1 {
   text-align: left;
+  width: 90%;
 }
-.hero .col p {
+.hero .col h4 {
   text-align: left;
   width: 100%;
 }
@@ -201,38 +250,53 @@ button {
 }
 .hero .hero-img {
   align-items: center;
+  justify-content: flex-end;
 }
 
 .features {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px 0 100px 0;
+  margin: 10vh 0 10vh 0;
+  height: 120vh;
 }
-.features .cards {
-  margin: 50px 0 50px 0;
-  width: 80%;
+.features .cols {
   display: flex;
-  gap: 20px;
+}
+.features .cols .cards {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   color: black;
 }
-.features .cards .card {
+.features .cols .cards .card {
+  height: 30vh;
+  width: 55%;
+}
+.features .cols .surf-img {
   flex: 1;
+  height: 100vh;
+}
+.features .cols .surf-img img {
+  height: 100%;
 }
 
 .uses {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 10% 20% 200px 20%;
-  background-color: rgb(255, 255, 255);
-  border-radius: 350px 0 0 0;
+  padding: 15% 20vw 30vh 20vw;
+  background-color: #d1f5ff;
+  border-top-left-radius: 60% 120%;
+  border-top-right-radius: 60% 120%;
   color: black;
 }
 
 .pricing {
-  padding: 50px 0 100px 0;
-  background-color: white;
+  padding: 4vh 0 8vh 0;
+  background-color: #d1f5ff;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -242,7 +306,7 @@ button {
 .pricing .pricingCards {
   display: flex;
   width: 40%;
-  gap: 60px;
+  gap: 3vw;
 }
 .pricing .pricingCards .pricingCard {
   flex: 1;
@@ -256,7 +320,7 @@ button {
   padding: 60px 0 35px 0;
   gap: 20px;
   color: black;
-  background-color: white;
+  background-color: #d1f5ff;
 }
 .footer .links {
   display: flex;
@@ -265,6 +329,10 @@ button {
 .footer .links a {
   text-decoration: none;
   color: black;
+}
+
+.signin {
+  overflow-x: hidden;
 }
 
 .signinHero {
@@ -333,12 +401,7 @@ button {
   align-items: center;
   gap: 20px;
 }
-.signupHero form div {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.signupHero form div input {
+.signupHero form input {
   width: 75%;
   height: 40px;
   border-radius: 7.5px;
@@ -351,12 +414,10 @@ button {
 }
 
 .pricingChoice {
-  padding: 5% 25% 10% 25%;
+  padding: 4% 25% 10% 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
-  border-radius: 350px 0 0 0;
   color: black;
 }
 .pricingChoice .pricingCards {
@@ -366,8 +427,8 @@ button {
 }
 
 .faq {
+  padding-top: 10% 0 10% 0;
   width: 100%;
-  background-color: white;
   height: 750px;
 }
 

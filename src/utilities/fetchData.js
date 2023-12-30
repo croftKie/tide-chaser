@@ -59,6 +59,18 @@ export const postSignIn = async (values) => {
     `https://tider-chaser-server.onrender.com/users/login`,
     { email: values[0], password: values[1] }
   );
-  console.log(data);
+  return data;
+};
+
+export const postSignUp = async (values) => {
+  const { data } = await axios.post(
+    `https://tider-chaser-server.onrender.com/users/signup`,
+    {
+      first_name: values.first_name,
+      last_name: values.last_name,
+      email: values.email,
+      password: values.password,
+    }
+  );
   return data;
 };
