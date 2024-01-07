@@ -227,6 +227,7 @@ button {
   overflow-x: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  scrollbar-width: 40px;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -327,11 +328,26 @@ button {
     }
   }
 }
-.controls {
-  flex: 1;
+
+.selectors {
+  flex: 2;
   display: flex;
-  gap: 10%;
+  gap: 30px;
   margin: 2% 0 2% 0;
+  .selector {
+    background-color: $base-sand;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 1s;
+    &:hover {
+      transform: scale(110%);
+    }
+  }
+  .active {
+    background-color: $base-white;
+  }
 }
 
 // SUBSCRIBE PAGE
@@ -379,7 +395,6 @@ button {
     }
   }
 }
-
 .signupHero {
   flex: 9;
   display: flex;

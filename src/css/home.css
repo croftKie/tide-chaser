@@ -231,6 +231,7 @@ button {
   overflow-x: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  scrollbar-width: 40px;
 }
 .carousel::-webkit-scrollbar {
   display: none;
@@ -331,11 +332,25 @@ button {
   flex: 1;
 }
 
-.controls {
-  flex: 1;
+.selectors {
+  flex: 2;
   display: flex;
-  gap: 10%;
+  gap: 30px;
   margin: 2% 0 2% 0;
+}
+.selectors .selector {
+  background-color: rgba(255, 243, 207, 0.7254901961);
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 1s;
+}
+.selectors .selector:hover {
+  transform: scale(110%);
+}
+.selectors .active {
+  background-color: #fff;
 }
 
 .signin {
