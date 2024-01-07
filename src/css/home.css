@@ -52,23 +52,23 @@ a {
 }
 
 .card {
-  background-color: #d1f5ff;
   border-radius: 2vw;
   overflow: hidden;
   display: flex;
-  flex-direction: row-reverse;
-  padding: 15px;
+  padding: 20px;
+  border: 10px solid rgba(255, 243, 207, 0.7254901961);
+  align-items: center;
+  justify-content: center;
 }
 .card .cardImage {
-  flex: 2;
-  background-color: #ecdcaa;
+  flex: 1;
   border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .card .cardImage img {
-  width: 45%;
+  width: 40%;
 }
 .card .cardBody {
   flex: 3;
@@ -95,21 +95,25 @@ a {
 .list {
   display: flex;
   flex-direction: column;
-  gap: 8vh;
+  align-items: center;
+  gap: 4vh;
 }
-.list .item {
-  padding-bottom: 1vh;
-  border-bottom: 3px solid rgb(99, 207, 228);
+.list .card {
+  width: 85%;
+  border-color: rgba(255, 243, 207, 0.7254901961);
 }
-.list .item h3 {
-  margin-bottom: 1vh;
+.list .card .cardImage {
+  background-color: transparent;
+}
+.list .card .cardImage img {
+  width: 50%;
 }
 
 .button,
 button {
   height: 5vh;
   width: 8.5vw;
-  background-color: rgb(247, 247, 247);
+  background-color: #fff;
   border-radius: 5px;
   outline: none;
   border: none;
@@ -121,7 +125,7 @@ button {
 }
 
 .button-alt-color {
-  background-color: #ecdcaa;
+  background-color: #fff;
 }
 
 .text {
@@ -148,21 +152,24 @@ button {
   flex-direction: column;
   align-items: center;
   text-align: justify;
-  border-radius: 10px;
   gap: 3vh;
-  padding: 20px;
-  background-color: white;
+  padding: 4%;
+  border-radius: 20px;
+  border: 10px solid rgba(255, 243, 207, 0.7254901961);
 }
 .pricingCard .header-text {
   display: flex;
   flex-direction: column;
   align-items: center;
   color: black;
-  background-color: #ecdcaa;
   width: 100%;
   border-radius: 10px;
   padding: 5px;
   gap: 10px;
+}
+.pricingCard .card-text {
+  margin: 0 10% 0 10%;
+  text-align: center;
 }
 
 .bg {
@@ -176,9 +183,11 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
 }
 
 .homeNav {
+  flex: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -216,14 +225,36 @@ button {
   cursor: default;
 }
 
-.hero {
+.carousel {
+  max-width: 100vw;
+  height: 70vh;
+  overflow-x: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+.carousel .inner {
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+}
+.carousel .inner .item {
+  max-height: 70vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel .inner .item .hero {
   height: 55vh;
   display: flex;
   width: 80%;
   margin: 50px 0 100px 0;
   gap: 10px;
 }
-.hero .col {
+.carousel .inner .item .hero .col {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -232,117 +263,94 @@ button {
   gap: 20px;
   color: rgb(41, 41, 41);
 }
-.hero .col img {
+.carousel .inner .item .hero .col img {
   width: 100%;
 }
-.hero .col h1 {
+.carousel .inner .item .hero .col h1 {
   text-align: left;
   width: 90%;
 }
-.hero .col h4 {
+.carousel .inner .item .hero .col h4 {
   text-align: left;
   width: 100%;
 }
-.hero .col .buttons {
+.carousel .inner .item .hero .col .buttons {
   margin-top: 30px;
   display: flex;
   gap: 30px;
 }
-.hero .hero-img {
+.carousel .inner .item .hero .hero-img {
   align-items: center;
   justify-content: flex-end;
 }
-
-.features {
+.carousel .inner .item .features {
+  height: 70vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin: 10vh 0 10vh 0;
-  height: 120vh;
 }
-.features .cols {
+.carousel .inner .item .features .cols {
+  max-height: 70vh;
   display: flex;
+  align-items: center;
 }
-.features .cols .cards {
+.carousel .inner .item .features .cols .cards {
+  height: 70vh;
   flex: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   color: black;
+  gap: 5px;
 }
-.features .cols .cards .card {
-  height: 30vh;
-  width: 55%;
+.carousel .inner .item .features .cols .cards .card {
+  height: 30%;
+  width: 70%;
 }
-.features .cols .surf-img {
+.carousel .inner .item .features .cols .surf-img {
   flex: 1;
-  height: 100vh;
+  height: 70vh;
 }
-.features .cols .surf-img img {
-  height: 100%;
+.carousel .inner .item .features .cols .surf-img img {
+  height: 95%;
 }
-
-.uses {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 15% 20vw 30vh 20vw;
-  background-color: #d1f5ff;
-  border-top-left-radius: 60% 120%;
-  border-top-right-radius: 60% 120%;
-  color: black;
-}
-
-.pricing {
-  padding: 4vh 0 8vh 0;
-  background-color: #d1f5ff;
+.carousel .inner .item .pricing {
+  height: 70vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: black;
 }
-.pricing .pricingCards {
+.carousel .inner .item .pricing .pricingCards {
   display: flex;
-  width: 40%;
+  width: 60%;
   gap: 3vw;
 }
-.pricing .pricingCards .pricingCard {
+.carousel .inner .item .pricing .pricingCards .pricingCard {
   flex: 1;
 }
 
-.footer {
+.controls {
+  flex: 1;
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-  padding: 60px 0 35px 0;
-  gap: 20px;
-  color: black;
-  background-color: #d1f5ff;
-}
-.footer .links {
-  display: flex;
-  gap: 10px;
-}
-.footer .links a {
-  text-decoration: none;
-  color: black;
+  gap: 10%;
+  margin: 2% 0 2% 0;
 }
 
 .signin {
   overflow-x: hidden;
+  height: 100vh;
 }
-
-.signinHero {
+.signin .signinHero {
+  flex: 9;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 50%;
   margin: 50px 0 50px 0;
 }
-.signinHero .text {
+.signin .signinHero .text {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -351,23 +359,23 @@ button {
   margin: 20px 0 40px 0;
   gap: 10px;
 }
-.signinHero .text h2 {
+.signin .signinHero .text h2 {
   font-size: 2rem;
 }
-.signinHero form {
+.signin .signinHero form {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 }
-.signinHero form div {
+.signin .signinHero form div {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-.signinHero form div input {
-  width: 75%;
+.signin .signinHero form div input {
+  width: 65%;
   height: 40px;
   border-radius: 7.5px;
   padding-left: 10px;
@@ -376,11 +384,12 @@ button {
 }
 
 .signupHero {
+  flex: 9;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 50%;
-  margin: 50px 0 50px 0;
+  margin: 0 0 50px 0;
 }
 .signupHero .text {
   display: flex;
@@ -401,7 +410,18 @@ button {
   align-items: center;
   gap: 20px;
 }
-.signupHero form input {
+.signupHero form .name-inputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.signupHero form .name-inputs div {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+.signupHero form .name-inputs div input {
   width: 75%;
   height: 40px;
   border-radius: 7.5px;
@@ -409,11 +429,53 @@ button {
   border: none;
   font-size: 1.2rem;
 }
+.signupHero form .email-pass {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: 20px;
+}
+.signupHero form .email-pass div {
+  width: 100%;
+}
+.signupHero form .email-pass div input {
+  width: 100%;
+  height: 40px;
+  border-radius: 7.5px;
+  padding-left: 10px;
+  border: none;
+  font-size: 1.2rem;
+}
+.signupHero form .pass {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.signupHero form .pass .pass-inputs {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+.signupHero form .pass .pass-inputs input {
+  width: 75%;
+  height: 40px;
+  border-radius: 7.5px;
+  padding-left: 10px;
+  border: none;
+  font-size: 1.2rem;
+}
+.signupHero form .hidden {
+  display: none;
+}
 .signupHero form button {
+  margin-top: 20px;
   width: 50%;
 }
 
 .pricingChoice {
+  flex: 9;
   padding: 4% 25% 10% 25%;
   display: flex;
   flex-direction: column;
@@ -425,11 +487,8 @@ button {
   margin: 10% 0 10% 0;
   gap: 40px;
 }
-
-.faq {
-  padding-top: 10% 0 10% 0;
-  width: 100%;
-  height: 750px;
+.pricingChoice .selected {
+  background-color: rgba(255, 243, 207, 0.7254901961);
 }
 
 @media screen and (max-width: 600px) {

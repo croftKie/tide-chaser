@@ -2,20 +2,34 @@ import React from "react";
 import HomeNav from "./homeComps/HomeNav";
 import HomeHero from "./homeComps/HomeHero";
 import Features from "./homeComps/Features";
-import Uses from "./homeComps/Uses";
 import Pricing from "./homeComps/Pricing";
-import Footer from "./homeComps/Footer";
 import "../css/home.css";
 
 const Home = () => {
   return (
     <div className="home bg">
       <HomeNav />
-      <HomeHero />
-      <Features />
-      <Uses />
-      <Pricing />
-      <Footer />
+      <div className="carousel">
+        <div className="inner">
+          <div className="item">
+            <HomeHero />
+          </div>
+          <div className="item">
+            <Features />
+          </div>
+          <div className="item">
+            <Pricing />
+          </div>
+        </div>
+      </div>
+      <div className="controls">
+        <button>
+          <h6>Back</h6>
+        </button>
+        <button>
+          <h6>Forward</h6>
+        </button>
+      </div>
     </div>
   );
 };

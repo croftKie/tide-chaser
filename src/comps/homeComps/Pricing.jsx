@@ -8,8 +8,6 @@ function Pricing() {
       <HeaderText
         heading="Pricing"
         text="Our goal with Tide Chaser is to create a highly accurate wave report, and surfing companion that is also accesible and reasonably priced. We do maintain our own servers and databases so have some running costs that come with the application."
-        buttonText="Join Today"
-        buttonColor="button-alt-color"
       />
       <div className="pricingCards">
         <PricingCard

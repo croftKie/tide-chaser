@@ -4,13 +4,13 @@ import subImg from "../../assets/subscription.png";
 import { moveCardOutLeft } from "../../utilities/animations";
 import { useRef, useState } from "react";
 function PricingChoice({ setStep, setSubscriptionMode, handleSignUp }) {
-  const [subscription, setSubscription] = useState(null);
   const sectionRef = useRef();
-
+  const [freeCard, setFreeCard] = useState(false);
+  const [subCard, setSubCard] = useState(true);
   return (
     <section ref={sectionRef} className="pricingChoice">
       <div className="pricingCards">
-        <div className="pricingCard">
+        <div className={freeCard ? "pricingCard" : "pricingCard selected"}>
           <div className="header-text">
             <img className="small-img" src={freeImg} alt="" />
             <h3>Free Tier</h3>
@@ -22,13 +22,16 @@ function PricingChoice({ setStep, setSubscriptionMode, handleSignUp }) {
           </p>
           <h4>£0.00 Per Month</h4>
           <button
-            onClick={() => setSubscriptionMode(1)}
+            onClick={() => {
+              setFreeCard(false);
+              setSubCard(true);
+            }}
             className="button-alt-color"
           >
             Select
           </button>
         </div>
-        <div className="pricingCard">
+        <div className={subCard ? "pricingCard" : "pricingCard selected"}>
           <div className="header-text">
             <img className="small-img" src={subImg} alt="" />
             <h3>Subscription Tier</h3>
@@ -40,7 +43,10 @@ function PricingChoice({ setStep, setSubscriptionMode, handleSignUp }) {
           </p>
           <h4>£3.99 Per Month</h4>
           <button
-            onClick={() => setSubscriptionMode(2)}
+            onClick={() => {
+              setSubCard(false);
+              setFreeCard(true);
+            }}
             className="button-alt-color"
           >
             Select

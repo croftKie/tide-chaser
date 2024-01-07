@@ -7,7 +7,7 @@ export const scaleOutIn = (element) => {
 };
 export const scaleOut = (element) => {
   const tl = gsap.timeline();
-  tl.to(element, { scale: 1.1, duration: 0.25 });
+  tl.to(element, { scale: 1.05, duration: 0.25 });
 };
 
 export const scaleIn = (element) => {

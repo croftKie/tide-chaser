@@ -16,7 +16,9 @@ function HomeNav() {
             <a href="">About</a>
           </Link> */}
           <Link to="/sign-in">
-            <a href="">Sign-In</a>
+            <a href="">
+              <h6>Sign-In</h6>
+            </a>
           </Link>
           <Link
             ref={subscribeButtonRef}
@@ -25,7 +27,7 @@ function HomeNav() {
             className="button button-alt-color"
             to="/subscribe"
           >
-            Subscribe
+            <h6>Subscribe</h6>
           </Link>
         </div>
       </nav>

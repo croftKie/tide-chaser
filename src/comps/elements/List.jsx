@@ -1,3 +1,8 @@
+import favouritesImg from "../../assets/rating.png";
+import boardImg from "../../assets/surfboard.png";
+import weatherImg from "../../assets/weather-forecast.png";
+import Card from "../elements/Card";
+
 function List({ elements, img }) {
   const data = [
     {
@@ -21,10 +26,13 @@ function List({ elements, img }) {
     <section className="list">
       {data.map((el) => {
         return (
-          <div className="item">
-            <h4>{el.title}</h4>
-            <p>{el.content}</p>
-          </div>
+          <Card
+            title={"Find Global Surf Data"}
+            content={[
+              "We collate wave and oceanography data from 7 different sources to provide a high quality surf report.",
+            ]}
+            image={weatherImg}
+          />
         );
       })}
     </section>

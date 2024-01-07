@@ -1,8 +1,7 @@
-import React from "react";
 import HomeNav from "./homeComps/HomeNav";
 import Footer from "./homeComps/Footer";
 import AboutHero from "./aboutComps/AboutHero";
-import Description from "./aboutComps/Description";
+import Description from "./aboutComps/AboutHero";
 
 const About = () => {
   return (

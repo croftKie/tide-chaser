@@ -1,11 +1,23 @@
 import surfHero from "../../assets/surf.png";
 import { moveCardOutRight } from "../../utilities/animations";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 function SignUpHero({ setStep, setFormData }) {
   const sectionRef = useRef();
   const formRef = useRef();
+  const first_name_ref = useRef();
+  const last_name_ref = useRef();
+  const email_ref = useRef();
+  const password_ref = useRef();
+  const [emailSectionMode, setEmailSectionMode] = useState(false);
+  const [passSectionMode, setPassSectionMode] = useState(false);
+
   const handleSubmit = () => {
-    const formData = {};
+    const formData = {
+      first_name: first_name_ref.current.value,
+      last_name: last_name_ref.current.value,
+      email: email_ref.current.value,
+      password: password_ref.current.value,
+    };
     const formArr = Array.from(formRef.current.children);
 
     formArr.forEach((item, index) => {
@@ -17,7 +29,6 @@ function SignUpHero({ setStep, setFormData }) {
     setFormData(formData);
     moveCardOutRight(sectionRef.current, () => setStep(0));
   };
-
   return (
     <section ref={sectionRef} className="signupHero">
       <div className="text">
@@ -26,16 +37,55 @@ function SignUpHero({ setStep, setFormData }) {
         <p>Welcome to Tide Chaser. Follow the instructions below to sign up.</p>
       </div>
       <form ref={formRef} action="">
-        <input placeholder="Kieran" type="text" name="first_name" id="fn" />
-        <input placeholder="Croft" type="text" name="last_name" id="ln" />
-        <input
-          placeholder="email@email.com"
-          type="email"
-          name="email"
-          id="em"
-        />
-        <input placeholder="Password" type="password" name="password" />
-        <input placeholder="Confirm Password" type="password" name="confirm" />
+        <div className="name-inputs">
+          <h4>1. Add your first and last name</h4>
+          <div>
+            <input
+              ref={first_name_ref}
+              placeholder="Kieran"
+              type="text"
+              name="first_name"
+              id="fn"
+            />
+            <input
+              onChange={() => setEmailSectionMode(true)}
+              ref={last_name_ref}
+              placeholder="Croft"
+              type="text"
+              name="last_name"
+              id="ln"
+            />
+          </div>
+        </div>
+        <div className={emailSectionMode ? "email-pass" : "email-pass hidden"}>
+          <div className="email">
+            <h4>2. Add your email</h4>
+            <input
+              onChange={() => setPassSectionMode(true)}
+              ref={email_ref}
+              placeholder="email@email.com"
+              type="email"
+              name="email"
+              id="em"
+            />
+          </div>
+        </div>
+        <div className={passSectionMode ? "pass" : "pass hidden"}>
+          <h4>3. Add your password</h4>
+          <div className="pass-inputs">
+            <input
+              ref={password_ref}
+              placeholder="Password"
+              type="password"
+              name="password"
+            />
+            <input
+              placeholder="Confirm Password"
+              type="password"
+              name="confirm"
+            />
+          </div>
+        </div>
         <button
           onClick={(e) => {
             e.preventDefault();

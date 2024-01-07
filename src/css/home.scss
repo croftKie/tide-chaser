@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Marvel:wght@400;700&family=Nunito:wght@300;400;500;700&family=Sarala:wght@400;700&display=swap");
+$base-white: #fff;
+$base-sand: #fff3cfb9;
+$base-blue: #d1f5ff;
+$bg-color: rgb(99, 207, 228);
+
 * {
   margin: 0;
   padding: 0;
@@ -50,21 +55,21 @@ a {
 
 // COMPONENTS
 .card {
-  background-color: #d1f5ff;
   border-radius: 2vw;
   overflow: hidden;
   display: flex;
-  flex-direction: row-reverse;
-  padding: 15px;
+  padding: 20px;
+  border: 10px solid $base-sand;
+  align-items: center;
+  justify-content: center;
   .cardImage {
-    flex: 2;
-    background-color: #ecdcaa;
+    flex: 1;
     border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     img {
-      width: 45%;
+      width: 40%;
     }
   }
   .cardBody {
@@ -80,9 +85,6 @@ a {
         font-size: 2rem;
       }
     }
-    .cardText {
-      // padding: 10px;
-    }
     .cardLink {
       padding: 10px;
       border-radius: 0 0 10px 10px;
@@ -95,12 +97,16 @@ a {
 .list {
   display: flex;
   flex-direction: column;
-  gap: 8vh;
-  .item {
-    padding-bottom: 1vh;
-    border-bottom: 3px solid rgb(99, 207, 228);
-    h3 {
-      margin-bottom: 1vh;
+  align-items: center;
+  gap: 4vh;
+  .card {
+    width: 85%;
+    border-color: $base-sand;
+    .cardImage {
+      background-color: transparent;
+      img {
+        width: 50%;
+      }
     }
   }
 }
@@ -108,7 +114,7 @@ a {
 button {
   height: 5vh;
   width: 8.5vw;
-  background-color: rgb(247, 247, 247);
+  background-color: $base-white;
   border-radius: 5px;
   outline: none;
   border: none;
@@ -119,7 +125,7 @@ button {
   cursor: pointer;
 }
 .button-alt-color {
-  background-color: #ecdcaa;
+  background-color: $base-white;
 }
 .text {
   display: flex;
@@ -144,20 +150,23 @@ button {
   flex-direction: column;
   align-items: center;
   text-align: justify;
-  border-radius: 10px;
   gap: 3vh;
-  padding: 20px;
-  background-color: white;
+  padding: 4%;
+  border-radius: 20px;
+  border: 10px solid $base-sand;
   .header-text {
     display: flex;
     flex-direction: column;
     align-items: center;
     color: black;
-    background-color: #ecdcaa;
     width: 100%;
     border-radius: 10px;
     padding: 5px;
     gap: 10px;
+  }
+  .card-text {
+    margin: 0 10% 0 10%;
+    text-align: center;
   }
 }
 
@@ -166,16 +175,16 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(99, 207, 228);
+  background-color: $bg-color;
 }
 .home {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
 }
-
-// HOME PAGE
 .homeNav {
+  flex: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -185,7 +194,6 @@ button {
   height: 4vh;
   border-radius: 10px;
   padding: 0 10px 0 10px;
-  // background-color: white;
   .brand {
     display: flex;
     align-items: center;
@@ -213,168 +221,172 @@ button {
     }
   }
 }
-.hero {
-  height: 55vh;
-  display: flex;
-  width: 80%;
-  margin: 50px 0 100px 0;
-  gap: 10px;
-  .col {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    margin-bottom: 0;
-    gap: 20px;
-    color: rgb(41, 41, 41);
-    img {
-      width: 100%;
-    }
-    h1 {
-      text-align: left;
-      width: 90%;
-    }
-    h4 {
-      text-align: left;
-      width: 100%;
-    }
-    .buttons {
-      margin-top: 30px;
-      display: flex;
-      gap: 30px;
-    }
+.carousel {
+  max-width: 100vw;
+  height: 70vh;
+  overflow-x: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
   }
-  .hero-img {
-    align-items: center;
-    justify-content: flex-end;
-  }
-}
-.features {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 10vh 0 10vh 0;
-  height: 120vh;
-  .cols {
+  .inner {
+    width: fit-content;
     display: flex;
-    .cards {
-      flex: 2;
+    // padding-left: 10vw;
+    .item {
+      max-height: 70vh;
+      width: 100vw;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      // gap: 5%;
-      color: black;
-      .card {
-        height: 30vh;
-        width: 55%;
+      justify-content: center;
+      .hero {
+        height: 55vh;
+        display: flex;
+        width: 80%;
+        margin: 50px 0 100px 0;
+        gap: 10px;
+        .col {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: start;
+          margin-bottom: 0;
+          gap: 20px;
+          color: rgb(41, 41, 41);
+          img {
+            width: 100%;
+          }
+          h1 {
+            text-align: left;
+            width: 90%;
+          }
+          h4 {
+            text-align: left;
+            width: 100%;
+          }
+          .buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 30px;
+          }
+        }
+        .hero-img {
+          align-items: center;
+          justify-content: flex-end;
+        }
+      }
+      .features {
+        height: 70vh;
+        display: flex;
+        align-items: center;
+        .cols {
+          max-height: 70vh;
+          display: flex;
+          align-items: center;
+          .cards {
+            height: 70vh;
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            gap: 5px;
+
+            .card {
+              height: 30%;
+              width: 70%;
+            }
+          }
+          .surf-img {
+            flex: 1;
+            height: 70vh;
+            img {
+              height: 95%;
+            }
+          }
+        }
+      }
+      .pricing {
+        height: 70vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: black;
+        .pricingCards {
+          display: flex;
+          width: 60%;
+          gap: 3vw;
+          .pricingCard {
+            flex: 1;
+          }
+        }
       }
     }
-    .surf-img {
-      flex: 1;
-      height: 100vh;
-      img {
-        height: 100%;
-      }
-    }
   }
 }
-.uses {
+.controls {
+  flex: 1;
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 15% 20vw 30vh 20vw;
-  background-color: #d1f5ff;
-  // border-radius: 50% 50% 0 0;
-  border-top-left-radius: 60% 120%;
-  border-top-right-radius: 60% 120%;
-  color: black;
-}
-.pricing {
-  padding: 4vh 0 8vh 0;
-  background-color: #d1f5ff;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: black;
-  .pricingCards {
-    display: flex;
-    width: 40%;
-    gap: 3vw;
-    .pricingCard {
-      flex: 1;
-    }
-  }
-}
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-  padding: 60px 0 35px 0;
-  gap: 20px;
-  color: black;
-  background-color: #d1f5ff;
-  .links {
-    display: flex;
-    gap: 10px;
-    a {
-      text-decoration: none;
-      color: black;
-    }
-  }
+  gap: 10%;
+  margin: 2% 0 2% 0;
 }
 
 // SUBSCRIBE PAGE
 .signin {
   overflow-x: hidden;
-}
-.signinHero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50%;
-  margin: 50px 0 50px 0;
-  .text {
+  height: 100vh;
+  .signinHero {
+    flex: 9;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    margin: 20px 0 40px 0;
-    gap: 10px;
-    h2 {
-      font-size: 2rem;
+    width: 50%;
+    margin: 50px 0 50px 0;
+    .text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin: 20px 0 40px 0;
+      gap: 10px;
+      h2 {
+        font-size: 2rem;
+      }
     }
-  }
-  form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    div {
+    form {
       width: 100%;
       display: flex;
-      justify-content: center;
-      input {
-        width: 75%;
-        height: 40px;
-        border-radius: 7.5px;
-        padding-left: 10px;
-        border: none;
-        font-size: 1.2rem;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      div {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        input {
+          width: 65%;
+          height: 40px;
+          border-radius: 7.5px;
+          padding-left: 10px;
+          border: none;
+          font-size: 1.2rem;
+        }
       }
     }
   }
 }
+
 .signupHero {
+  flex: 9;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 50%;
-  margin: 50px 0 50px 0;
+  margin: 0 0 50px 0;
   .text {
     display: flex;
     flex-direction: column;
@@ -393,20 +405,73 @@ button {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    input {
-      width: 75%;
-      height: 40px;
-      border-radius: 7.5px;
-      padding-left: 10px;
-      border: none;
-      font-size: 1.2rem;
+    .name-inputs {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      div {
+        width: 100%;
+        display: flex;
+        gap: 20px;
+        input {
+          width: 75%;
+          height: 40px;
+          border-radius: 7.5px;
+          padding-left: 10px;
+          border: none;
+          font-size: 1.2rem;
+        }
+      }
+    }
+    .email-pass {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+      gap: 20px;
+      div {
+        width: 100%;
+        input {
+          width: 100%;
+          height: 40px;
+          border-radius: 7.5px;
+          padding-left: 10px;
+          border: none;
+          font-size: 1.2rem;
+        }
+      }
+    }
+    .pass {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .pass-inputs {
+        width: 100%;
+        display: flex;
+        gap: 20px;
+        input {
+          width: 75%;
+          height: 40px;
+          border-radius: 7.5px;
+          padding-left: 10px;
+          border: none;
+          font-size: 1.2rem;
+        }
+      }
+    }
+    .hidden {
+      display: none;
     }
     button {
+      margin-top: 20px;
       width: 50%;
     }
   }
 }
 .pricingChoice {
+  flex: 9;
   padding: 4% 25% 10% 25%;
   display: flex;
   flex-direction: column;
@@ -417,11 +482,9 @@ button {
     margin: 10% 0 10% 0;
     gap: 40px;
   }
-}
-.faq {
-  padding-top: 10% 0 10% 0;
-  width: 100%;
-  height: 750px;
+  .selected {
+    background-color: $base-sand;
+  }
 }
 
 @media screen and (max-width: 600px) {

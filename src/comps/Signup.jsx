@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import HomeNav from "./homeComps/HomeNav";
-import Footer from "./homeComps/Footer";
 import SignUpHero from "./signupComps/signupHero";
 import PricingChoice from "./signupComps/PricingChoice";
 import { postSignUp } from "../utilities/fetchData";
@@ -35,8 +34,6 @@ const Signin = () => {
           handleSignUp={handleSignUp}
         />
       )}
-      <h1 className="faq"></h1>
-      {/* <Footer /> */}
     </div>
   );
 };

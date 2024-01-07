@@ -14,7 +14,6 @@ function Features() {
             title={"Find Global Surf Data"}
             content={[
               "We collate wave and oceanography data from 7 different sources to provide a high quality surf report.",
-              "Our reports are available for any beach and coastline around the world.",
             ]}
             image={weatherImg}
           />
@@ -22,7 +21,6 @@ function Features() {
             title={"Add Favourites Breaks"}
             content={[
               "In our app you can save your favourite spots and get up-to-date reports with a single click.",
-              "Even if your favourite spot is off the beaten track, we can get the wave data. ",
             ]}
             image={favouritesImg}
           />
@@ -30,7 +28,6 @@ function Features() {
             title={"Reports for your Board"}
             content={[
               "A feature unique to Tide Chaser, if you tell us the size of board you ride...",
-              "We can adjust the wave data on the fly to give you a report that matches the size of waves that your board suits.",
             ]}
             image={boardImg}
           />

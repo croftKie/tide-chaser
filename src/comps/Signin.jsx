@@ -8,8 +8,6 @@ const Signin = () => {
     <div className="signin bg">
       <HomeNav />
       <SigninHero />
-      <Features />
-      {/* <Footer /> */}
     </div>
   );
 };
