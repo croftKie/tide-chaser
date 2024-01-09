@@ -1,10 +1,11 @@
 import { useRef } from "react";
-import surfHero from "../../assets/surf.png";
+import surfHero from "../../assets/camper.png";
 import { postSignIn } from "../../utilities/fetchData";
 import { useNavigate } from "react-router-dom";
 function SigninHero() {
   const formRef = useRef();
   const navigate = useNavigate();
+
   const handleSubmitSignin = async (form) => {
     const formArr = Array.from(form);
     const values = [];
@@ -25,8 +26,8 @@ function SigninHero() {
     <section className="signinHero">
       <div className="text">
         <img className="small-img" src={surfHero} alt="" />
-        <h2>Sign In to Tide Chaser</h2>
-        <p>Welcome back! Login below to get started on your break search.</p>
+        <h2>Tide Chaser</h2>
+        <h4>Welcome back!</h4>
       </div>
       <form ref={formRef} action="">
         <div className="email">
@@ -42,7 +43,7 @@ function SigninHero() {
           }}
           type="submit"
         >
-          Sign In
+          <h6>Sign In</h6>
         </button>
       </form>
     </section>

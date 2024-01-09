@@ -1,4 +1,4 @@
-import logo from "../../assets/logo_tc.png";
+import camper from "../../assets/camper.png";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { scaleOutIn, scaleOut, scaleIn } from "../../utilities/animations";
@@ -9,6 +9,7 @@ function HomeNav() {
     <>
       <nav className="homeNav">
         <Link className="brand" to="/">
+          <img src={camper} alt="" />
           <h3>Tide Chaser</h3>
         </Link>
         <div className="links">

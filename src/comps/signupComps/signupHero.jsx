@@ -1,4 +1,4 @@
-import surfHero from "../../assets/surf.png";
+import surfHero from "../../assets/camper.png";
 import { moveCardOutRight } from "../../utilities/animations";
 import { useRef, useState } from "react";
 function SignUpHero({ setStep, setFormData }) {
@@ -33,8 +33,8 @@ function SignUpHero({ setStep, setFormData }) {
     <section ref={sectionRef} className="signupHero">
       <div className="text">
         <img className="small-img" src={surfHero} alt="" />
-        <h2>Sign up to Tide Chaser</h2>
-        <p>Welcome to Tide Chaser. Follow the instructions below to sign up.</p>
+        <h2>Tide Chaser</h2>
+        <h4>Welcome!</h4>
       </div>
       <form ref={formRef} action="">
         <div className="name-inputs">
@@ -93,7 +93,7 @@ function SignUpHero({ setStep, setFormData }) {
           }}
           type="submit"
         >
-          Confirm and Select Subscription Tier {">>"}
+          <h6>Confirm and Select Subscription Tier</h6>
         </button>
       </form>
     </section>
